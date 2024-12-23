@@ -1,0 +1,7 @@
+click==8.1.7 
+customtkinter==5.2.2
+libusb1==3.1.0 
+packaging==24.1
+pillow==10.4.0 
+Svg.path==6.3
+tqdm==4.66.5
