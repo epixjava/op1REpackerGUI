@@ -3,6 +3,10 @@
 
 Welcome to op1REpacker! This is a gui version of the op1repacker command line tool from op1hacks github with some added extras. 
 
+
+![OP1REGUI](https://github.com/epixjava/op1REpackerGUI/blob/main/assets/op1REGUI.png)
+
+
 The original tool can be found Here: https://github.com/op1hacks/op1repacker 
 
 
