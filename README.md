@@ -20,11 +20,13 @@ Error handeling for troubleshooting messed up files.
 
 1. pip3 install pipreqs (Or however you manage your packages)
 
-2.in the main folder for op1REpacker open a terminal window and run 
+2. In the main folder for op1REpacker open a terminal window and run 
 
-pip install -r requirements.txt
+  pip install -r requirements.txt
 
-3. Test by running python3 main.py in the same terminal window. op1REpacker should start
+3. Test by running python3 main.py in the same terminal window. 
+
+op1REpacker should start
 
 
 # OP-1 REpacker
@@ -71,7 +73,6 @@ pip install -r requirements.txt
 I had to use pip3 on macOS so,
 
 pip3 install -r requirements.txt
-
 
 
 Run the app using 
