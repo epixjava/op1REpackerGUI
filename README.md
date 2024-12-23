@@ -46,8 +46,8 @@ build time and date, bootloader version etc.
 ![Custom Iter Graphic](https://raw.githubusercontent.com/op1hacks/op1repacker/master/images/iter-lab.png)
 ![Tape Invert](https://raw.githubusercontent.com/op1hacks/op1repacker/master/images/tape-invert.png)
 ![CWO Moose](https://raw.githubusercontent.com/op1hacks/op1repacker/master/images/cwo-moose.png)
-![CWO Wizard](https://raw.githubusercontent.com/epixjava/op1REpackerGUI/assets/cwo-wizard.png)
-![iter LostArt](https://raw.githubusercontent.com/epixjava/op1REpackerGUI/assets/iter-lostart.png)
+![CWO Wizard](https://raw.githubusercontent.com/epixjava/op1REpackerGUI/blob/main/assets/cwo-wizard.png)
+![iter LostArt](https://raw.githubusercontent.com/epixjava/op1REpackerGUI/blob/main/assets/iter-lostart.png)
 
 
 ## Disclaimer
