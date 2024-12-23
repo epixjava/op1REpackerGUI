@@ -169,7 +169,7 @@ Currently available mods are:
    
  * gfx-cwo-wizard 
 
-  | > Swap the cow in the CWO effect with a super chill wizard
+   > Swap the cow in the CWO effect with a super chill wizard
 
  * gfx-iter-lostart
 
@@ -201,10 +201,10 @@ Opie is the desktop frand for the OP-1.
 
 ** Now works on macOS and Windows 10/11!
 
-Rip Sides A and B of your Tape. Rips to FLAC, MP3 or M4a
-See storage information of your OP1 
-Backup and Restore your OP1
-Pretty ASCII art
+Rip Sides A and B of your Tape. Rips to FLAC, MP3 or M4a.
+See storage information of your OP1. 
+Backup and Restore your OP1.
+Pretty ASCII art.
 
 
 ## usin' it
