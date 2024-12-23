@@ -62,7 +62,7 @@ def get_linux_mount_points():
     return mount_points
 
 def validate_op1_mount(path):
-    """Validate if a path contains OP-1 directory structure."""
+    # Validate if a path contains OP-1 directory structure.
     try:
         subdirs = set(entry.name for entry in os.scandir(path) if entry.is_dir())
         return OP1_BASE_DIRS.issubset(subdirs)
@@ -70,7 +70,7 @@ def validate_op1_mount(path):
         return False
 
 def find_op1_mount():
-    """Find OP-1 mount point across different operating systems."""
+    # Find OP-1 mount point across different operating systems.
     system = get_system_type()
     
     # Get potential mount points based on OS
