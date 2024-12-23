@@ -178,9 +178,6 @@ Currently available mods are:
    > since it is unable for download. (Phytaxil, if you still have the 
    > OG file I can use that instead) 
  
- *gfx-seq-deadmau5
-
-   > Adds deadmau5 to the sequencer graphic
    
 
 
