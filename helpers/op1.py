@@ -11,22 +11,18 @@ PRODUCT_OP1 = 0x0002
 OP1_BASE_DIRS = set(['tape', 'album', 'synth', 'drum'])
 
 def get_system_type():
-
     system = platform.system().lower()
     return system
 
 def ensure_connection():
-
     if not is_connected():
         print("Please connect your OP-1 and put it in DISK mode (Shift+COM -> 3)...")
         wait_for_connection()
 
 def is_connected():
-    
     return usb.core.find(idVendor=VENDOR_TE, idProduct=PRODUCT_OP1) is not None
 
 def wait_for_connection():
-    
     try:
         while True:
             time.sleep(1)
@@ -36,19 +32,16 @@ def wait_for_connection():
         sys.exit(0)
 
 def get_windows_mount_points():
-    
     from string import ascii_uppercase
     return [f"{d}:\\" for d in ascii_uppercase if os.path.exists(f"{d}:\\")]
 
 def get_macos_mount_points():
-    
     volumes_path = Path("/Volumes")
     if volumes_path.exists():
         return [str(p) for p in volumes_path.iterdir() if p.is_dir()]
     return []
 
 def get_linux_mount_points():
-    
     media_paths = [Path("/media"), Path("/mnt")]
     mount_points = []
     for base_path in media_paths:
@@ -62,7 +55,6 @@ def get_linux_mount_points():
     return mount_points
 
 def validate_op1_mount(path):
-    
     try:
         subdirs = set(entry.name for entry in os.scandir(path) if entry.is_dir())
         return OP1_BASE_DIRS.issubset(subdirs)
@@ -70,7 +62,6 @@ def validate_op1_mount(path):
         return False
 
 def find_op1_mount():
-    
     system = get_system_type()
     
     
@@ -92,7 +83,6 @@ def find_op1_mount():
     return None
 
 def wait_for_op1_mount(timeout=5):
-    
     i = 0
     try:
         while i < timeout:
@@ -107,7 +97,6 @@ def wait_for_op1_mount(timeout=5):
         sys.exit(0)
 
 def get_mount_or_die_trying():
-    
     ensure_connection()
     mount_point = find_op1_mount()
     if mount_point is None:
