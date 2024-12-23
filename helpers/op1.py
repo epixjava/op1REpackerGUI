@@ -1,12 +1,8 @@
 import os
 import sys
 import time
-import opie
-import click
-import tarfile
 import usb.core
 import usb.util
-from helpers import u, mount
 import platform
 from pathlib import Path
 
