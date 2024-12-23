@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 320 160">
+    <g id="svg16">
+      <g id="layer1">
+        <ellipse cx="39.1" cy="56.4" rx="25.4" ry="25.2" fill="none" stroke="#4D9EFF" stroke-width="1.5"/>
+        <path d="M32.5,32.6v-15.8" fill="none" stroke="#4D9EFF" stroke-width="1.5"/>
+        <path d="M32.5,16.8l-2.6-7.9" fill="none" stroke="#4D9EFF" stroke-width="1.5"/>
+        <path d="M45.7,32.6v-15.8" fill="none" stroke="#4D9EFF" stroke-width="1.5"/>
+        <path d="M45.7,16.8l2.6-7.9" fill="none" stroke="#4D9EFF" stroke-width="1.5"/>
+        <path d="M48.3,16.8h-18.4" fill="none" stroke="#4D9EFF" stroke-width="1.5"/>
+        <path d="M54.9,36.5l6.6-6.6" fill="none" stroke="#4D9EFF" stroke-width="1.5"/>
+        <path d="M60.1,41.8l6.6-6.6" fill="none" stroke="#4D9EFF" stroke-width="1.5"/>
+        <path d="M60.1,27.3l9.2,9.2" fill="none" stroke="#4D9EFF" stroke-width="1.5"/>
+        <path d="M28.7,8.9h21" fill="none" stroke="#4D9EFF" stroke-width="1.5"/>
+        <path d="M259.8,59.2v18.5l-27,55.4s-4.5,9.2,5.6,9.2h30.4" fill="none" stroke="#FF3A5D" stroke-width="1.5"/>
+        <path d="M259.8,59.2l-3.6-11.1" fill="none" stroke="#FF3A5D" stroke-width="1.5"/>
+        <path d="M277.8,59.2v18.5l27,55.4s4.5,9.2-5.6,9.2h-30.4" fill="none" stroke="#FF3A5D" stroke-width="1.5"/>
+        <path d="M277.8,59.2l3.6-11.1" fill="none" stroke="#FF3A5D" stroke-width="1.5"/>
+        <path d="M281.4,59.2h-25.2" fill="none" stroke="#FF3A5D" stroke-linecap="round" stroke-width="1.5"/>
+        <path d="M254.6,48.1h28.8" fill="none" stroke="#FF3A5D" stroke-width="1.5"/>
+        <path d="M35.3,98.2h7.9v4h-7.9v-4Z" fill="none" stroke="#4D9EFF" stroke-width="1.5"/>
+        <circle cx="39.2" cy="116.6" r="13.2" fill="none" stroke="#4D9EFF" stroke-width="1.5"/>
+        <path d="M43.2,129.8v5.3h-7.9v-5.3" fill="none" stroke="#4D9EFF" stroke-width="1.5"/>
+        <path d="M249,100.7h40" fill="none" stroke="#FF3A5D" stroke-width="1.5"/>
+        <circle cx="26" cy="68.1" r="1.3" fill="none" stroke="#383572" stroke-width="1.5"/>
+        <circle cx="37.8" cy="61.6" r="1.3" fill="none" stroke="#383572" stroke-width="1.5"/>
+        <circle cx="49.6" cy="72.1" r="1.3" fill="none" stroke="#383572" stroke-width="1.5"/>
+        <polyline points="44 135.1 58.2 137.3 58.2 139.7 18.5 139.7 18.5 137.4 34.8 135.1" fill="none" stroke="#4D9EFF" stroke-width="1.5"/>
+        <polyline points="36.5 97.1 38.8 86.7 41.4 97.1" fill="none" stroke="#4D9EFF" stroke-width="1.5"/>
+        <line id="bar3" x1="268.5" y1="122.3" x2="261.5" y2="129.3" fill="none" stroke="#FF3A5D" stroke-linecap="square" stroke-linejoin="bevel" stroke-width="2"/>
+        <line id="bar0" x1="39.5" y1="116.1" x2="33.5" y2="122.1" fill="none" stroke="#4D9EFF" stroke-linecap="square" stroke-linejoin="bevel" stroke-width="2"/>
+        <path d="M105.5,41.4c-4.9-2.9-12.2,3.1-14.1,4.6-2.6,2.1-8.5,7.8-7,10.7,2.2,4.4,21.3,3.2,24.3-5.3,1.2-3.4,0-8.2-3.2-10h0Z" fill="none" stroke="#00ED95" stroke-width="1.5"/>
+        <path d="M112,42.5c1.8-7.2,8.8-10.5,10.7-11.4,5.3-2.5,13.6-4,15.3-1,1.8,3.2-5,10.1-6.5,11.6-5.8,5.9-15.5,11.5-18.9,8.7-2.2-1.8-1-6.4-.7-7.8h0Z" fill="none" stroke="#00ED95" stroke-width="1.5"/>
+        <circle cx="201.1" cy="71.2" r="23.8" fill="none" stroke="#FFFFFF" stroke-width="1.5"/>
+        <circle cx="177.4" cy="38.2" r="9.6" fill="none" stroke="#FFFFFF" stroke-width="1.5"/>
+        <circle cx="240.1" cy="23.4" r="17" fill="none" stroke="#FFFFFF" stroke-width="1.5"/>
+        <line x1="219.2" y1="56.5" x2="232.9" y2="38.2" fill="none" stroke="#7C7990" stroke-width="1.5"/>
+        <line x1="228.1" y1="34.3" x2="215" y2="51.8" fill="none" stroke="#7C7990" stroke-width="1.5"/>
+        <line x1="185.4" y1="54.5" x2="179.5" y2="47.8" fill="none" stroke="#7C7990" stroke-width="1.5"/>
+        <line x1="190.4" y1="49.9" x2="185.4" y2="43.4" fill="none" stroke="#7C7990" stroke-width="1.5"/>
+        <circle cx="237.8" cy="33" r="1.3" fill="none" stroke="#AEB1DC" stroke-width="1.5"/>
+        <circle cx="230.5" cy="23.4" r="1.3" fill="none" stroke="#AEB1DC" stroke-width="1.5"/>
+        <circle cx="240.1" cy="23.4" r="1.3" fill="none" stroke="#AEB1DC" stroke-width="1.5"/>
+        <circle cx="247.5" cy="28.6" r="1.3" fill="none" stroke="#AEB1DC" stroke-width="1.5"/>
+        <circle cx="248.8" cy="18.4" r="1.3" fill="none" stroke="#AEB1DC" stroke-width="1.5"/>
+        <circle cx="237.8" cy="13.9" r="1.3" fill="none" stroke="#AEB1DC" stroke-width="1.5"/>
+        <line id="bar2" x1="201.1" y1="72.1" x2="194.1" y2="79.1" fill="#FFFFFF" stroke="#FFFFFF" stroke-linecap="square" stroke-linejoin="bevel" stroke-width="2"/>
+        <circle cx="134.4" cy="109.9" r="29.8" fill="none" stroke="#00ED95" stroke-width="1.5"/>
+        <line id="bar1" x1="135.1" y1="109.9" x2="127.1" y2="117.9" fill="none" stroke="#00ED95" stroke-linecap="square" stroke-linejoin="bevel" stroke-width="2"/>
+        <path d="M223.1,20.9h-40.8s-5,0-5,5v2" fill="none" stroke="#7C7990" stroke-width="1.5"/>
+        <path d="M187.1,17.1v7.3" fill="none" stroke="#7C7990" stroke-width="1.5"/>
+        <path d="M191.1,17.1v7.3" fill="none" stroke="#7C7990" stroke-width="1.5"/>
+        <path d="M195.1,17.1v7.3" fill="none" stroke="#7C7990" stroke-width="1.5"/>
+        <path d="M199.1,17.1v7.3" fill="none" stroke="#7C7990" stroke-width="1.5"/>
+        <path d="M203.1,17.1v7.3" fill="none" stroke="#7C7990" stroke-width="1.5"/>
+        <path d="M207.1,17.1v7.3" fill="none" stroke="#7C7990" stroke-width="1.5"/>
+        <path d="M211.1,17.1v7.3" fill="none" stroke="#7C7990" stroke-width="1.5"/>
+        <circle id="base1" cx="134.4" cy="109.9" r="3.3" fill="#00ED95" stroke="#00ED95" stroke-width="1.5"/>
+        <circle id="base0" cx="39.5" cy="116.1" r="2.5" fill="#4D9EFF" stroke="#4D9EFF" stroke-width="1.5"/>
+        <circle id="base2" cx="201.1" cy="72.1" r="2.5" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1.5"/>
+        <circle id="base3" cx="269" cy="121.5" r="3" fill="#FF3A5D" stroke="#FF3A5D" stroke-linecap="square" stroke-linejoin="bevel" stroke-width="2"/>
+        <path d="M107.7,35.8c.8,12.1,4.1,32.3,19.3,43,.8.6,1.7,1.1,2.6,1.7" fill="none" stroke="#00ED95" stroke-width="1.5"/>
+      </g>
+    </g>
+</svg>

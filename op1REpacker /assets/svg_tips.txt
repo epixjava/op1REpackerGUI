@@ -1,0 +1,35 @@
+
+** Custom SVG's **
+
+** Before you begin: I HIGHLY recommend the SVG VS code extension by Jock as well as the SVG Preview Extension by Simon Siefke. These will make your job MUCH easier. Being able to see your changes to your SVG in real time is a godsend. If you get comfortable enough with this setup you can even make the SVG's straight from VS code without having to use Illustrator 
+
+** My method was thus. I made a clean copy of the "Display" folder from my unpacked op-1 Firmware
+
+** I created a duplicate that I named WIP. The clean copy is used for reference. I never saved changes in these clean SVG's. This helps you stay organized. 
+
+** Open the SVG you want to edit from your WIP folder. 
+
+** I would make the graphic in Illustrator CC and save it using the "Save as" function. I applied the settings in the screenshot. The "Export as" function does not give you these options. I am not sure if it matters but I always made sure to select "use Artboards". 
+
+## After this the SVG should be normalized using the toolkit. 
+
+** I would compare both SVG files. The WIP one and a clean one in Visual Studio. I would make sure that the formatting is the same, that all ID's matched the clean copy and if there were any unsupported Attributes or Elements. If there are, I would go back into Illustrator and try a different method. 
+
+** Lastly I would make sure that all color HEX values matched the clean copy as well as making sure they were UPPERCASE. Please note that Illustrator CC changes white HEX to "fff" instead of "FFFFFF" Make sure white is set to "FFFFFF" as using "fff" will cause color errors on your OP-1. 
+
+## Save in VS Code and replace in the firmware "display" folder with the name matching the SVG you want to replace. 
+
+## Test with your OP-1 and try again. This is a lesson in trial and error. 
+  
+
+** Troubleshooting **
+
+** If your OP-1 does not boot take note of the text displayed on screen. 
+
+** This can give you a clue as to what is broken in your SVG file. 
+
+** Example: "Parser cannot find object blue." FIX: Ensure your blue objects match the naming 
+scheme of a clean SVG file that you are trying to edit. 
+
+** the OP-1 sees "blue" and blue_1_ as two different IDs. Illustrator CC removes the "_1_" from the "blue" id when saving as or exporting an SVG. These Ids must be corrected for the OP-1 to parse the file correctly. 
+
