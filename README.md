@@ -22,15 +22,24 @@ Error handeling for troubleshooting messed up files.
 
 # Install required packages
 
-1. pip3 install pipreqs (Or however you manage your packages)
 
-2. In the main folder for op1REpacker open a terminal window and run 
+1. In the main folder for op1REpacker open a terminal window and run 
+```
+ pip install -r requirements.txt
+```
+3. Test by running 
+```
+python3 main.py 
+```
+in the same terminal window. 
 
-  pip install -r requirements.txt
+op1REpacker should start.
 
-3. Test by running python3 main.py in the same terminal window. 
+For macOS Arm devices install libusb with homebrew 
 
-op1REpacker should start
+```
+brew install libusb
+```
 
 
 # OP-1 REpacker
@@ -71,18 +80,18 @@ Download a copy of the source code from this repo.
 Open a terminal window pointing to the folder that op1REpacker's  main.py file is located in. 
 
 Install dependancies by running 
-
+```
 pip install -r requirements.txt
-
+```
 I had to use pip3 on macOS so,
-
+```
 pip3 install -r requirements.txt
-
+```
 
 Run the app using 
-
+```
 python3 main.py
-
+```
 
 Enjoy using op1REpacker! 
 
