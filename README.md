@@ -19,8 +19,11 @@ Error handeling for troubleshooting messed up files.
 # Install required packages
 
 1. pip3 install pipreqs (Or however you manage your packages)
+
 2.in the main folder for op1REpacker open a terminal window and run 
+
 pip install -r requirements.txt
+
 3. Test by running python3 main.py in the same terminal window. op1REpacker should start
 
 
@@ -41,8 +44,8 @@ build time and date, bootloader version etc.
 ![Custom Iter Graphic](https://raw.githubusercontent.com/op1hacks/op1repacker/master/images/iter-lab.png)
 ![Tape Invert](https://raw.githubusercontent.com/op1hacks/op1repacker/master/images/tape-invert.png)
 ![CWO Moose](https://raw.githubusercontent.com/op1hacks/op1repacker/master/images/cwo-moose.png)
-![CWO Wizard](https://raw/githubusercontent.com/epixjava/op1REpacker/op1REpacker/assets/cwo-wizard.png)
-![iter LostArt](https://raw/githubusercontent.com/epixjava/op1REpacker/op1REpacker/assets/iter-lostart.png)
+![CWO Wizard](https://raw/githubusercontent.com/epixjava/op1REpackerGUI/assets/cwo-wizard.png)
+![iter LostArt](https://raw/githubusercontent.com/epixjava/op1REpackerGUI/assets/iter-lostart.png)
 
 
 ## Disclaimer
@@ -62,22 +65,18 @@ Download a copy of the source code from this repo.
 Open a terminal window pointing to the folder that op1REpacker's  main.py file is located in. 
 
 Install dependancies by running 
-'''
+
 pip install -r requirements.txt
 
-'''
 I had to use pip3 on macOS so,
 
-'''
 pip3 install -r requirements.txt
 
-'''
+
 
 Run the app using 
-'''
-python3 main.py
 
-'''
+python3 main.py
 
 
 Enjoy using op1REpacker! 
