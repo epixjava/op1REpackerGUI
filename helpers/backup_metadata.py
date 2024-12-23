@@ -1,6 +1,5 @@
 import json
 from pathlib import Path
-from datetime import datetime
 
 class BackupMetadata:
     def __init__(self, backup_dir):

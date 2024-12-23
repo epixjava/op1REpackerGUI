@@ -41,10 +41,10 @@ def cli():
     click.echo(f"Synth patches: {synth_synthesis_files} / 100 maximum")
     click.echo(f"Drum patches: {drum_files} / 42 maximum")
     
-    click.echo("\nVisit op1.fun for custom patches,synths and drum kits!")
-    click.echo("\nYour device is mounted and ready for file transfer.")
+    click.echo("\n Visit op1.fun for custom patches,synths and drum kits!")
+    click.echo("\n Your device is mounted and ready for file transfer.")
 
-    click.pause("\nYour OP-1 will remain mounted until you eject it.\nPress any key to close...")
+    click.pause("\n Your OP-1 will remain mounted until you eject it.\n Press any key to close...")
 
 if __name__ == '__main__':
     cli()

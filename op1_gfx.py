@@ -128,13 +128,13 @@ def is_patched(data):
 
 
 def patch_image_file(fw_path, patch_file):
-    # Read the patch file
+    
     f = open(patch_file)
     patch_data = f.read()
     f.close()
     patch = json.loads(patch_data)
 
-    # Read the original SVG
+    
     target_file = os.path.join(fw_path, 'content', 'display', patch['file'])
     f = open(target_file)
     svg_data = f.read()
@@ -143,15 +143,15 @@ def patch_image_file(fw_path, patch_file):
     if is_patched(svg_data):
         return False
 
-    # Change the SVG data
+    
     new_data = apply_patch(svg_data, patch)
 
-    # Make sure the data got patched
+    
     if new_data == svg_data:
         print('No changes made, patch already applied?')
         return False
 
-    # Write the patched data to the SVG file
+    e
     f = open(target_file, 'w')
     f.write(new_data)
     f.close()

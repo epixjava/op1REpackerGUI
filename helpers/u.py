@@ -3,8 +3,17 @@ import hashlib
 import configparser
 from os import path
 
-HOME = os.path.join(os.getenv("HOME"), "opie")
+def get_home_dir():
+
+    home = os.getenv("HOME") or os.getenv("USERPROFILE")
+    if not home:
+        raise EnvironmentError("Could not determine home directory - neither HOME nor USERPROFILE environment variables are set")
+    return home
+
+HOME = os.path.join(get_home_dir(), "opie")
 CONFIG_FILE = path.join(HOME, "opie.cfg")
+
+os.makedirs(HOME, exist_ok=True)
 
 def get_config():
     config = configparser.ConfigParser()

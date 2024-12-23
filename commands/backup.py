@@ -1,4 +1,5 @@
 import click
+import usb.util
 from helpers import op1, backups
 
 description = " Performs a full backup of your device"

@@ -1,6 +1,7 @@
 import customtkinter as ctk
 import tkinter as tk
 import os
+import sys
 import json
 import subprocess
 import op1_analyze
@@ -12,7 +13,6 @@ import svg_normalize
 from svg_analyze import analyze_file
 from shutil import copyfile
 from tkinter import filedialog, messagebox
-from PIL import Image
 
 
 class OP1REpacker:
@@ -34,14 +34,31 @@ class OP1REpacker:
     
         
     def set_icon(self):
-        
-        
-        icon_path = os.path.join(self.app_path, "assets", "op1re_icon.png")
-        if os.path.exists(icon_path):
-            icon = tk.PhotoImage(file=icon_path)
-            self.master.iconphoto(True, icon)
+        if sys.platform == "win32":
+            icon_path = os.path.join(self.app_path, "assets", "op1re_icon.ico")
+            if os.path.exists(icon_path):
+                self.master.wm_iconbitmap(icon_path)
+            else:
+                png_path = os.path.join(self.app_path, "assets", "op1re_icon.png")
+                if os.path.exists(png_path):
+                    try:
+                        with Image.open(png_path) as img:
+                            ico_output = os.path.join(self.app_path, "assets", "op1re_icon.ico")
+                            if img.mode != 'RGBA':
+                                img = img.convert('RGBA')
+                            img.save(ico_output, format='ICO')
+                            self.master.wm_iconbitmap(ico_output)
+                    except Exception as e:
+                        print(f"Warning: Could not convert PNG to ICO: {e}")
+                else:
+                    print(f"Warning: No icon files found at {icon_path} or {png_path}")
         else:
-            print(f"Warning: Icon file not found at {icon_path}")
+            icon_path = os.path.join(self.app_path, "assets", "op1re_icon.png")
+            if os.path.exists(icon_path):
+                icon = tk.PhotoImage(file=icon_path)
+                self.master.iconphoto(True, icon)
+            else:
+                print(f"Warning: Icon file not found at {icon_path}")
 
 
     def create_widgets(self):
@@ -341,35 +358,30 @@ class OP1REpacker:
             messagebox.showerror("Error", f"An error occurred while normalizing the SVG: {str(e)}")
     
     def open_toolkit(self):
-         default_script_path = "/Users/enzo/Desktop/op1REpacker GUI/opie.py"
+        script_path = os.path.join(self.app_path, "opie.py")
     
-         if not os.path.exists(default_script_path):
-             script_path = filedialog.askopenfilename(
-                 title="Select opie.py",
-                 filetypes=[("Python files", "*.py")]
-             )
-             if not script_path:
-                 messagebox.showwarning("opie toolkit not found. \n Add opie.py filepath to main.py \n set in def open_toolkit")
-                 return
-         else:
-             script_path = default_script_path
+        if not os.path.exists(script_path):
+            selected_path = filedialog.askopenfilename(
+                title="Select opie.py",
+                initialdir=self.app_path,
+                filetypes=[("Python files", "*.py")]
+            )
+        
+            if not selected_path:
+                messagebox.showwarning("Warning", "opie toolkit not found.\nPlease select the opie.py file.")
+                return
+        
+            self.app_path = os.path.dirname(os.path.abspath(selected_path))
+            script_path = selected_path
 
-         try:
-             subprocess.run([script_path], check=True)
-             messagebox.showinfo("Success", "Opie completed the task successfully!")
-         except subprocess.CalledProcessError as e:
-             if e.returncode == 13:
-                messagebox.showerror("Permission Denied",
-                    "Opie needs to be executable. "
-                   "Use these steps to resolve the issue:\n\n"
-                    "1. Open Terminal\n"
-                    "2. Run this command:\n"
-                    f"   chmod +x {script_path}\n"
-                    "3. Try running the script again.")
-             else:
-                     messagebox.showerror("Error", "Opie failed to run. Check if the script has any errors.")
-         except Exception as e:
-                     messagebox.showerror("Error", f"An error occurred: {str(e)}")
+        try:
+            python_executable = sys.executable
+            subprocess.run([python_executable, script_path], check=True)
+            messagebox.showinfo("Success", "Opie completed the task successfully!")
+        except subprocess.CalledProcessError as e:
+            messagebox.showerror("Error", f"Opie failed to run. Error code: {e.returncode}")
+        except Exception as e:
+            messagebox.showerror("Error", f"An error occurred: {str(e)}")
 
 if __name__ == "__main__":
     ctk.set_appearance_mode("dark")

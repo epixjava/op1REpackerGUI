@@ -1,4 +1,9 @@
+import os
+import sys
+import time
+import opie
 import click
+import tarfile
 from helpers import op1, rips
 
 description = "    Rips album side A and B and saves as flac/mp3/m4a"
