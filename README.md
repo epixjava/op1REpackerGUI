@@ -215,6 +215,7 @@ In the terminal window enter one of the following commands;
 "Rip"
 "Storage"
 "Eject"
+"Verify"
 "Exit"
 
 An "opie" folder is created in your users folder. Your backups and rips will be saved here. 
