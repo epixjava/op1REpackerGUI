@@ -23,7 +23,6 @@ def is_connected():
     return usb.core.find(idVendor=VENDOR_TE, idProduct=PRODUCT_OP1) is not None
 
 def wait_for_connection():
-    #Wait for OP-1 to connect.
     try:
         while True:
             time.sleep(1)
@@ -64,7 +63,6 @@ def validate_op1_mount(path):
         return False
 
 def find_op1_mount():
-    # Find OP-1 mount point across different operating systems.
     system = get_system_type()
     
     # Get potential mount points based on OS
@@ -101,7 +99,6 @@ def wait_for_op1_mount(timeout=5):
         sys.exit(0)
 
 def get_mount_or_die_trying():
-    """Main function to get OP-1 mount point."""
     ensure_connection()
     mount_point = find_op1_mount()
     if mount_point is None:
