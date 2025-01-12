@@ -34,7 +34,7 @@ class OP1REpacker:
         self.create_widgets()
         self.set_icon()
     
-        
+    #checks platform to use supported icon type     
     def set_icon(self):
         if sys.platform == "win32":
             icon_path = os.path.join(self.app_path, "assets", "op1re_icon.ico")
