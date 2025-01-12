@@ -1,6 +1,6 @@
+import os
 import customtkinter as ctk
 import tkinter as tk
-import os
 import sys
 import json
 import subprocess
@@ -14,6 +14,7 @@ from svg_analyze import analyze_file
 from shutil import copyfile
 from tkinter import filedialog, messagebox
 from PIL import Image
+os.environ['TK_SILENCE_DEPRECATION'] = '1'
 
 
 class OP1REpacker:
