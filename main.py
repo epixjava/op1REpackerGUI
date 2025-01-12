@@ -149,11 +149,8 @@ class OP1REpacker:
 
 
          tips_file_path = os.path.join(self.app_path, "assets", "svg_tips.txt")
-         try:
-              with open(tips_file_path, "r") as file:
-                 tips_text = file.read()
-         except FileNotFoundError:
-             tips_text = "SVG Formatting Tips file missing"
+         with open(tips_file_path, "r") as file:
+            tips_text = file.read()
 
          text_widget = ctk.CTkTextbox(frame, wrap="word")
          text_widget.pack(fill="both", expand=True)
