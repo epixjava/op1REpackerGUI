@@ -14,7 +14,7 @@ from svg_analyze import analyze_file
 from shutil import copyfile
 from tkinter import filedialog, messagebox
 from PIL import Image
-os.environ['TK_SILENCE_DEPRECATION'] = '1'
+
 
 
 class OP1REpacker:
