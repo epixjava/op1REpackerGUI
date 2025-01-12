@@ -1,7 +1,7 @@
 
 # Intro 
 
-Welcome to op1REpacker! This is a gui version of the op1repacker command line tool from op1hacks github with some added extras. 
+Introducing op1REpackerGUI! This is a gui version of the op1repacker command line tool from op1hacks github with some added extras. 
 
 
 ![OP1REGUI](https://github.com/epixjava/op1REpackerGUI/blob/main/assets/op1REGUI.png)
