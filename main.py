@@ -73,7 +73,7 @@ class OP1REpacker:
          left_frame.pack(side="left", fill="y", padx=(0, 10))
 
          ctk.CTkLabel(left_frame, text="REpacker", font=("Helvetica", 16, "bold")).pack(pady=(0, 0))
-         ctk.CTkLabel(left_frame, text="Firmware tools", font=("Helvetica", 14, "italic")).pack(pady=(0, 0))
+         ctk.CTkLabel(left_frame, text="Firmware tools", font=("Helvetica", 16, "italic")).pack(pady=(0, 0))
 
          actions = ['unpack', 'modify', 'repack', 'analyze']
          for action in actions:
@@ -100,7 +100,7 @@ class OP1REpacker:
          center_frame.pack(side="left", fill="both", expand=True)
 
          ctk.CTkLabel(center_frame, text="Mods", font=("Helvetica", 16, "bold")).pack(pady=(0, 0))
-         ctk.CTkLabel(center_frame, text="Select to enable then press Modify!", font=("Helvetica", 14, "italic")).pack(pady=(0, 0))
+         ctk.CTkLabel(center_frame, text="Select to enable then press Modify!", font=("Helvetica", 16, "italic")).pack(pady=(0, 0))
 
          # add your gfx pack to the list by putting its name under options
          self.option_vars = {}
@@ -230,7 +230,7 @@ class OP1REpacker:
 
         messagebox.showinfo("Unpacking", f'Unpacking {target_path}...')
         if self.repacker.unpack(target_path):
-            messagebox.showinfo("Success", 'Unpacking completed successfully! \n Select the unpacked file in the file browser! \n Select mods then apply with Modify!')
+            messagebox.showinfo("Success", 'Unpacking completed successfully! \n Select the unpacked file in the file browser! \n Select mods then apply by clicking Modify!')
         else:
             messagebox.showerror("Error", 'An error occurred during unpacking!')
 
@@ -242,7 +242,7 @@ class OP1REpacker:
 
         options = [opt for opt, var in self.option_vars.items() if var.get()]
         if not options:
-            messagebox.showerror("Error", 'Please specify what modifications to make by selecting from the mod list')
+            messagebox.showerror("Error", 'Please specify what modifications to make by selecting from the mod list \n Be carefull not to apply mods twice!')
             return
 
         # Database modifications
@@ -349,7 +349,7 @@ class OP1REpacker:
             out_path = os.path.splitext(target_path)[0] + "_normalized.svg"
             result = svg_normalize.normalize_svg(target_path, out_path)
             if result:
-                messagebox.showinfo("Success", f"SVG normalized successfully. Output saved as: {out_path}")
+                messagebox.showinfo("Success", f"SVG normalized successfully. Normalized file saved at: {out_path}")
             else:
                 messagebox.showerror("Error", "Failed to normalize the SVG file.")
         except Exception as e:
@@ -357,7 +357,7 @@ class OP1REpacker:
     
     def open_toolkit(self):
         script_path = os.path.join(self.app_path, "opie.py")
-    
+        #Allows the user to manually select opie.py if the program can not find it for some reason...
         if not os.path.exists(script_path):
             selected_path = filedialog.askopenfilename(
                 title="Select opie.py",
@@ -375,7 +375,7 @@ class OP1REpacker:
         try:
             python_executable = sys.executable
             subprocess.run([python_executable, script_path], check=True)
-            messagebox.showinfo("Success", "Opie completed the task successfully!")
+            #messagebox.showinfo("Success", "Opie completed the task successfully!")
         except subprocess.CalledProcessError as e:
             messagebox.showerror("Error", f"Opie failed to run. Error code: {e.returncode}")
         except Exception as e:

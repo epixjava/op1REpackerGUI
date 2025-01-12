@@ -60,12 +60,13 @@ class OpieCLI(click.MultiCommand):
             choice = input("\nEnter a command or type exit: ").strip().lower()
             
             if choice in ['quit', 'exit']:
+                print("Exiting...\nPlease return to OP-1RepackerGUI")
                 return
             elif choice in self.list_commands(ctx):
                 command = self.get_command(ctx, choice)
                 return command.invoke(ctx)
             else:
-                print(f"Invalid command: {choice}. Please see available commands")
+                print(f"Invalid command: {choice}. Please select from the list of available commands")
 
 cli = OpieCLI()
 
