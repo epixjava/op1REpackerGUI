@@ -375,7 +375,6 @@ class OP1REpacker:
         try:
             python_executable = sys.executable
             subprocess.run([python_executable, script_path], check=True)
-            #messagebox.showinfo("Success", "Opie completed the task successfully!")
         except subprocess.CalledProcessError as e:
             messagebox.showerror("Error", f"Opie failed to run. Error code: {e.returncode}")
         except Exception as e:
