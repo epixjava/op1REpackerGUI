@@ -13,6 +13,7 @@ import svg_normalize
 from svg_analyze import analyze_file
 from shutil import copyfile
 from tkinter import filedialog, messagebox
+from PIL import Image
 
 
 class OP1REpacker:
