@@ -23,7 +23,7 @@ class OP1REpacker:
         
         
         self.master = master
-        self.master.title("OP-1 REpacker")
+        self.master.title("OP-1 REpackerGUI")
         self.master.geometry("800x600")
         
         self.repacker = op1_repack.OP1Repack(debug=False)
