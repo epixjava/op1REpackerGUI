@@ -34,33 +34,18 @@ class OP1REpacker:
         self.create_widgets()
         self.set_icon()
     
+    
     #checks platform to use supported icon type     
     def set_icon(self):
         if sys.platform == "win32":
             icon_path = os.path.join(self.app_path, "assets", "op1re_icon.ico")
             if os.path.exists(icon_path):
                 self.master.wm_iconbitmap(icon_path)
-            else:
-                png_path = os.path.join(self.app_path, "assets", "op1re_icon.png")
-                if os.path.exists(png_path):
-                    try:
-                        with Image.open(png_path) as img:
-                            ico_output = os.path.join(self.app_path, "assets", "op1re_icon.ico")
-                            if img.mode != 'RGBA':
-                                img = img.convert('RGBA')
-                            img.save(ico_output, format='ICO')
-                            self.master.wm_iconbitmap(ico_output)
-                    except Exception as e:
-                        print(f"Warning: Could not convert PNG to ICO: {e}")
-                else:
-                    print(f"Warning: No icon files found at {icon_path} or {png_path}")
         else:
             icon_path = os.path.join(self.app_path, "assets", "op1re_icon.png")
             if os.path.exists(icon_path):
                 icon = tk.PhotoImage(file=icon_path)
                 self.master.iconphoto(True, icon)
-            else:
-                print(f"Warning: Icon file not found at {icon_path}")
 
 
     def create_widgets(self):
