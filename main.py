@@ -101,7 +101,7 @@ class OP1REpacker:
          center_frame.pack(side="left", fill="both", expand=True)
 
          ctk.CTkLabel(center_frame, text="Mods", font=("Helvetica", 16, "bold")).pack(pady=(0, 0))
-         ctk.CTkLabel(center_frame, text="Select to enable then press Modify!", font=("Helvetica", 16, "italic")).pack(pady=(0, 0))
+         ctk.CTkLabel(center_frame, text="Select a mod to enable it then press Modify!", font=("Helvetica", 16, "italic")).pack(pady=(0, 0))
 
          # add your gfx pack to the list by putting its name under options
          self.option_vars = {}
@@ -129,7 +129,7 @@ class OP1REpacker:
          path_frame.pack(pady=15, padx=10, fill="x")
 
          self.path_var = tk.StringVar()
-         ctk.CTkEntry(path_frame, textvariable=self.path_var, width=600).pack(side="left", padx=(0, 10))
+         ctk.CTkEntry(path_frame, textvariable=self.path_var, width=630).pack(side="left", padx=(0, 10))
          ctk.CTkButton(path_frame, text="Browse", command=self.browse_path).pack(side="right")   
     
     
