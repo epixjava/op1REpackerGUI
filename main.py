@@ -382,8 +382,8 @@ class OP1REpacker:
             messagebox.showerror("Error", f"An error occurred: {str(e)}")
 
 if __name__ == "__main__":
-    ctk.set_appearance_mode("dark")
-    ctk.set_default_color_theme("green")
+    theme_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "assets", "op1theme.json")
+    ctk.set_default_color_theme(theme_path)
 
     root = ctk.CTk()
     app = OP1REpacker(root)
