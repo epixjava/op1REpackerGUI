@@ -16,7 +16,6 @@ from tkinter import filedialog, messagebox
 from PIL import Image
 
 
-
 class OP1REpacker:
 
   
