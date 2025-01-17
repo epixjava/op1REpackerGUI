@@ -95,7 +95,7 @@ class OP1REpacker:
             ('filter', 'Enable "filter" effect'),
             ('subtle-fx', 'Make FX defaults less intensive'),
             ('gfx-iter-lab', 'Enable custom lab graphic for iter'),
-            ('gfx-cwo-moose', ' Changes CWO graphic from cow to moose'),
+            ('gfx-cwo-moose', 'Changes CWO graphic from cow to moose'),
             ('gfx-tape-invert', 'Inverts the Tape for better visability'),
             ('gfx-cwo-wizard', 'Changes CWO graphic from cow to a wizard'),
             ('gfx-iter-lostart','Changes "iter" graphic to Phytaxil custom artwork'),
