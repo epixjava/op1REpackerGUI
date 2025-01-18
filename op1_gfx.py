@@ -143,15 +143,12 @@ def patch_image_file(fw_path, patch_file):
     if is_patched(svg_data):
         return False
 
-    
     new_data = apply_patch(svg_data, patch)
 
-    
     if new_data == svg_data:
         print('No changes made, patch already applied?')
         return False
 
-    e
     f = open(target_file, 'w')
     f.write(new_data)
     f.close()
