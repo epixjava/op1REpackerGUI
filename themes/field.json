@@ -1,0 +1,27 @@
+{
+  "theme_meta": [
+    "OP-1 field color scheme (incomplete)"
+  ],
+  "global": {
+    "#00ed95": "#b88f5b",
+    "#ff3a5d": "#ed4528",
+    "#698eff": "#2d5e8a",
+    "#ffffff": "#cbd4c5",
+    "#4d9eff": "#2d5e8a",
+    "#00475b": "#0b3d68",
+    "#ff395a": "#ba4725",
+    "#00ab6b": "#c49354",
+    "#00ed6d": "#cc9349",
+    "#80ffaf": "#c98d3e",
+    "#00acfa": "#1c7bce"
+  },
+  "ok": {
+    "cowbella": "#b88f5b",
+    "cowbella_1_": "#b88f5b",
+    "cowbellb": "#b88f5b",
+    "cowbellb_1_": "#b88f5b",
+    "druma": ["#ff3a5d", "#9ba8a8"],
+    "drumb": ["#ff3a5d", "#9ba8a8"],
+    "synth": ["#ff90a7", "#9ba8a8"]
+  }
+}

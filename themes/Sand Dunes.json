@@ -1,0 +1,16 @@
+{
+    "Sand Dunes": [
+        "Sand Dunes theme"
+    ],
+    "global": {
+        "#00ed95": "#1e81b0",
+        "#ff3a5d": "#eeeee4",
+        "#698eff": "#e28743",
+        "#dfd9ff": "#eab676",
+        "#ffffff": "#76b5c5",
+        "#aeb1dc": "#21130d",
+        "#9256d7": "#873e23",
+        "#4d9eff": "#abdbe3",
+        "#383572": "#154c79"
+    }
+}

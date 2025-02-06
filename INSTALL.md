@@ -1,11 +1,6 @@
 # Installation
 
 
-## Mac OS X
-
-
-## Windows 
-
 
 
 ### Step 1: Get the firmware file that you want to modify

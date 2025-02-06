@@ -10,17 +10,21 @@ import op1_gfx
 import op1_patches
 import op1_repack
 import svg_normalize
+from op1_glitter_gui import OP1GlitterGUI
 from svg_analyze import analyze_file
 from shutil import copyfile
 from tkinter import filedialog, messagebox
 from PIL import Image
 
 
+#Original op1repacker v0.2.6 by richrd
+#OP1REpackerGUI by Epixjava 
+
+#TODO final documentation install write up, directory structure clean up?
+
 class OP1REpacker:
 
-  
     def __init__(self, master):
-        
         
         self.master = master
         self.master.title("OP-1 REpackerGUI")
@@ -33,7 +37,7 @@ class OP1REpacker:
         self.create_widgets()
         self.set_icon()
     
-    
+
     #checks platform to use supported icon type     
     def set_icon(self):
         if sys.platform == "win32":
@@ -48,8 +52,7 @@ class OP1REpacker:
 
 
     def create_widgets(self):
-    
-    
+        
          main_frame = ctk.CTkFrame(self.master)
          main_frame.pack(pady=10, padx=10, fill="both", expand=True)
 
@@ -77,7 +80,8 @@ class OP1REpacker:
              ctk.CTkButton(right_frame, text=button_text, command=lambda a=action: self.perform_action(a)).pack(pady=5)
          
          ctk.CTkLabel(right_frame, text="Advanced Tools", font=("Helvetica", 16, "bold")).pack(pady=(120, 10))
-         ctk.CTkButton(right_frame, text="Run opie toolkit", command=self.open_toolkit).pack(pady=2)
+         ctk.CTkButton(right_frame, text="Run Opie toolkit", command=self.open_toolkit).pack(pady=2)
+         ctk.CTkButton(right_frame, text="*  ✧ . Glitter ✧  * .", command=self.open_glitter_tool).pack(pady=(15, 10))
      
          ctk.CTkButton(right_frame, text="Custom GFX Tips", command=self.show_graphics_tips).pack(side="bottom")
 
@@ -144,12 +148,34 @@ class OP1REpacker:
     
     
     def browse_path(self):
-        selection_type = messagebox.askquestion("Selection Type", "Are you selecting an .op-1 or .svg file? \n Select No if picking a directory")
+        dialog = ctk.CTkToplevel(self.master)
+        dialog.title("Please select an option to continue")
+        dialog.geometry("320x100")
+        dialog.transient(self.master)
+        dialog.grab_set()
+        
+        def on_button_click(selection):
+            dialog.selection = selection
+            dialog.destroy()
+        ctk.CTkLabel(dialog, text="What type of file are you selecting?").pack(pady=10)
+        ctk.CTkButton(dialog, 
+                         text=".op1 fw file or svg", 
+                         command=lambda: on_button_click(".op1/svg")).pack(side="left", padx=10)
+        ctk.CTkButton(dialog, 
+                         text="Firmware Directory", 
+                         command=lambda: on_button_click("directory")).pack(side="left", padx=10)
+        self.master.wait_window(dialog)
     
-        if selection_type == 'yes':
-            path = filedialog.askopenfilename(filetypes=[("OP-1 Firmware", "*.op1"), ("SVG Files", "*.svg"), ("All Files", "*.*")])
+        selection_type = getattr(dialog, 'selection', 'directory')
+    
+        if selection_type == ".op1/svg":
+                path = filedialog.askopenfilename(filetypes=[
+                    ("OP-1 Firmware", "*.op1"), 
+                    ("SVG Files", "*.svg"),
+                    ("All Files", "*.*")
+                ])
         else:
-            path = filedialog.askdirectory()
+                path = filedialog.askdirectory()
         if path:
             self.path_var.set(path)
     
@@ -176,6 +202,14 @@ class OP1REpacker:
             self.normalize_svg(target_path)
         elif action == 'analyze_svg':
             self.analyze_svg(target_path)
+    
+    
+    def open_glitter_tool(self):
+        try:
+            fw_path = self.path_var.get()
+            OP1GlitterGUI(self.master, firmware_path=fw_path)
+        except Exception as e:
+            messagebox.showerror(f"Failed to open Glitter: {str(e)}")
     
     
     def analyze(self, target_path):
@@ -299,6 +333,7 @@ class OP1REpacker:
 
         messagebox.showinfo("Success", "All modifications completed. \n Please Repack firmware directory")
     
+    
     def analyze_svg(self, target_path):
         if not target_path.lower().endswith('.svg'):
             target_path = filedialog.askopenfilename(filetypes=[("SVG files", "*.svg")])
@@ -324,6 +359,7 @@ class OP1REpacker:
             import traceback
             print(traceback.format_exc())
     
+    
     def normalize_svg(self, target_path):
         if not target_path.lower().endswith('.svg'):
             target_path = filedialog.askopenfilename(filetypes=[("SVG files", "*.svg")])
@@ -339,6 +375,7 @@ class OP1REpacker:
                 messagebox.showerror("Error", "Failed to normalize the SVG file.")
         except Exception as e:
             messagebox.showerror("Error", f"An error occurred while normalizing the SVG: {str(e)}")
+    
     
     def open_toolkit(self):
         script_path = os.path.join(self.app_path, "opie.py")
@@ -372,3 +409,5 @@ if __name__ == "__main__":
     root = ctk.CTk()
     app = OP1REpacker(root)
     root.mainloop()
+
+# -v.099-glitter

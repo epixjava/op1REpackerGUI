@@ -117,6 +117,7 @@ def cli(backup_file=None):
         click.echo(f"Backup size: {metadata['size_bytes'] / (1024*1024):.1f}MB")
         click.echo(f"SHA-256: {metadata['sha256']}")
         click.echo(f"Verified: {metadata['last_verified']}")
+        click.pause("Press any key to return to op1-REpacker")
 
     except Exception as e:
         click.echo(f"\n  Error during verification: {str(e)}")

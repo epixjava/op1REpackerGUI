@@ -1,0 +1,244 @@
+# Glitter Theme Engine User Guide
+
+*   .  ✧  *    .    ✧    *    .    ✧    *    .    ✧    *
+                                                       
+       ______    __    _    __    __                     
+      / ____/   / /   (_)  / /_  / /_  ___    _____     
+     / / __    / /   / /  / __/ / __/ / _ \  / ___/       
+    / /_/ /   / /   / /  / /_  / /_  /  __/ / /           
+    \____/   /_/   /_/   \__/  \__/  \___/ /_/            
+      ______    __                                        
+     /_  __/   / /_   ___    ____ ___   ___               
+      / /     / __ \ / _ \  / __ `__ \ / _ \              
+     / /     / / / //  __/ / / / / / //  __/              
+    /_/     /_/ /_/ \___/ /_/ /_/ /_/ \___/               
+        ______                     _                      
+       / ____/   ____    ____ _   (_)   ____   ___        
+      / __/     / __ \  / __ `/  / /   / __ \ / _ \       
+     / /___    / / / / / /_/ /  / /   / / / //  __/       
+    /_____/   /_/ /_/  \__, /  /_/   /_/ /_/ \___/        
+                      /____/                            
+                                                        
+                                                        
+*   .  ✧  *    .    ✧    *    .    ✧    *    .    ✧    *
+
+Welcome to The Glitter Theme Engine! 
+
+
+This tool allows you to make custom themes for the OP-1. 
+
+
+Thank you to Nanobot567 for his op1-glitter patching function and the inspiration for this tool! 
+
+
+## Table of Contents
+1. Before you begin
+2. Basic Mode Guide
+3. Advanced Mode Guide
+4. Applying your theme
+5. Tips & Color References
+6. Troubleshooting
+
+
+
+## Before you begin
+
+Before using the Glitter Theme Engine, make sure you have:
+   - An unpacked OP1 firmware directory 
+   - Selected that unpacked directory in the OP1REpackerGUI file browser
+   - Applied any modifications to the firmware BEFORE applying the theme. Apply your theme as the last modification 
+   - color selector to get hex colors (e.g., #FF0000)
+
+
+## Basic Mode Guide
+
+   - Basic mode is perfect for quick theme creation, only allowing you to edit OP-1 Global Colors 
+
+
+### Getting Started in Basic Mode
+
+1. **Launch OP1REpackerGUI**
+   - select an unpacked firmware directory in file browser
+   - select Glitter to open the theme engine 
+   - The tool opens in Basic mode by default
+   
+2. *Basic Mode Interface**
+   - There are several buttons in the top section
+     - Select Theme: Choose existing themes, populated from the 'themes' folder 
+     - How to use: Opens this guide
+     - Apply Theme: Applies the selected theme to the firmware folder 
+     - NOTE: Themes can only be applied once per unpacked directory 
+     - Add New Theme: Import themes from the community or other sources 
+
+3. **Preview Window**
+   - Shows how the selected theme will look
+   - Use "Theme: On/Off" button to toggle between original and themed views
+
+4. **Color Mapping**
+   - The top row of boxes shows the original OP-1 colors
+   - Bottom row is where you enter your new colors
+   - All colors should be in hex format (e.g., #FF0000)
+   - Select your saved theme to see an update in preview window
+   - As you change themes the bottom row will be updated with the corsponding colors of that theme 
+
+
+### Creating a Theme in Basic Mode
+
+1. **Start Fresh or Load Existing theme**
+   - Start with a blank template or
+   - Select an existing theme to modify it
+    
+2. **Set Your Colors**
+   - Look at the top row of color boxes
+   - Enter your desired replacement colors in the bottom row
+   - Each color box shows a live preview of your chosen color
+
+3. **Save Your Theme**
+   - Enter a theme name
+   - Add a description (optional but recommended)
+   - Click "Save Theme"
+   - Your theme will be saved to the themes folder
+   - You will see your theme show up in the 'Select theme' section 
+
+
+## Advanced Mode Guide
+
+   - Advanced mode offers full control over specific SVG elements and allows customization of themes.
+
+### Accessing Advanced Mode
+   - select an unpacked firmware directory in file browser
+   - select Glitter to open the theme engine 
+   - Click the "Advanced Mode" switch at the bottom left of Basic Mode 
+
+
+### The Advanced Mode Interface
+
+1. **Top Controls**
+   - Basic Mode toggle: Return to Basic mode - NOTICE: switching between modes will reset your work 
+   - SVG selector: Choose which SVG to edit, pulled from user provided firmware directory
+   - Theme selector: Choose from existing themes found in 'themes' folder 
+   - Apply Theme button: Apply to unpacked firmware directory
+   - NOTE: Themes can only be applied once per unpacked directory
+
+2. **Preview Section**
+   - Shows current SVG with theme applied
+   - Theme: On/Off button toggles preview
+   - color preview box will update in real time
+   - color preview boxes will autofill selected theme colors
+
+3. **Global Color Mappings and SVG Element IDs**
+   - Similar to Basic mode
+   - Changes affect all SVGs
+   - Remember to set these to your desired colors or they will be saved as default
+   - After selecting an SVG file a window will present you the available Element IDs for the selected SVG
+   - use these IDs to target specific elements of the SVG 
+
+5. **SVG Element ID Mappings**
+   - Specify  color rules for individual SVG elements
+   - Add multiple mapping sections to target different SVGs in your theme
+
+
+### Creating a Theme in Advanced mode 
+
+1. **Set Global OP-1 Colors**
+   - Start with global color mappings, these are the foundation of your theme!
+   - These affect all SVGs unless overridden
+
+2. **SVG-Specific Colors**
+   - Select an SVG from the dropdown
+   - View available element IDs
+   - Click "Add SVG Mapping" to create new mapping 
+   - If a theme has SVG mappings already this section will autopopulate 
+   - Enter the element ID and desired color
+
+3. **Multiple SVG Support**
+   - Add additional SVG sections as needed
+   - As you select SVG files from the drop down, SVG file names will automatically be added to the ID mapping window
+   - Each section can have multiple element mappings
+   - Use "Remove SVG Mapping" to delete sections
+
+4. **Save and Apply Theme**
+   - Enter theme name and description
+   - Click "Save Theme"
+   - Once Satisfied click Apply Theme
+
+
+## Applying your theme! 
+
+1. **Return to OP1REpackerGUI**   
+   - Once your theme has been applied sucessfully, close Glitter and return to the main window
+   - Make sure your themed directory is selected in the file browser and select 'Repack'
+   - Upload the REpacked OP-1 firmware file to the OP-1 
+
+
+## Tips & Color References
+
+1. **Tips**
+   - Use 6-digit hex codes with hash (#FF0000)
+   - Consider contrast and readability
+   - We want TE to like us so try to keep the spirit of the OP-1. No color atrocities. ;D
+   - Start with global colors in Basic mode
+   - Switch to Advanced for fine-tuning
+   - Save work regularly
+   - Test theme with preview before REpacking OP-1 firmware
+
+2. **Common Color References**
+   - #00ed95: green encoder 
+   - #ff3a5d: red encoder 
+   - #698eff: blue encoder
+   - #dfd9ff: white encoder, most dynamic elements use this color (tape, high EQ, changing text)
+   - #ffffff: white
+   - #aeb1dc: "text" white
+   - #9256d7: purple background
+   - #4d9eff: alternate, lighter blue
+   - #383572: dark purple
+
+
+## Troubleshooting
+
+1. **Preview Not displaying correctly**
+   - Check hex color format
+   - Check that a theme has not already been applied to the firmware folder
+   - If a theme has already been applied, the preview feature will load the modified SVGs
+   - Consider this a feature to toggle between themes instead of defaults... its all how you look at it right! 
+
+
+2. **Theme Not Saving**
+   - Verify theme name is entered
+   - Check write permissions on your system
+   - Ensure valid colors and Element ID mappings 
+  
+
+3. **SVG Not Loading**
+   - Verify firmware directory is a fresh, unpacked directory.
+   - Verify the firmware directory did not get moved after opening Glitter. 
+   - Close the program and reopen glitter, Try reselecting the file again 
+
+4. **Theme Not Applying**
+   - Check firmware directory location and filenames
+   - Check if SVG files were corrupted 
+   - Ensure the firmware does not have a theme applied and modifications have been applied before the theme 
+   - Check the .json of the theme you saved and compare it with preview.json for correct format
+
+
+## Issues 
+Let me know about em. I have other things going on but I will do my best to take a look at issues. No Promises 
+
+I am always open to Feedback
+
+Please include the type; Bug or Feature Request in your title. 
+Preferably:
+
+"Feature Request: Glitter: Some new feature"
+or 
+"Bug: Glitter: bug or issue you found" 
+
+Include whatever you want in your description. Photos and error messages help with troubleshooting. 
+
+If you want to contribiute to the project, message me. 
+
+I can not wait to see what y'all make. 
+
+I hope you enjoy making themes with Glitter, 
+
+-- Epixjava

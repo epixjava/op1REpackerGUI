@@ -7,10 +7,32 @@ Introducing op1REpackerGUI! This is a gui version of the op1repacker command lin
 ![OP1REGUI](https://github.com/epixjava/op1REpackerGUI/blob/main/assets/op1REGUI.png)
 
 
-The original tool can be found Here: https://github.com/op1hacks/op1repacker 
+The original tool can be found here: https://github.com/op1hacks/op1repacker 
 
 
-## New Features
+## New!!
+
+### Glitter Theme Engine 
+
+Glitter has been added to op1REpackerGUI! The ultimate theme creator for your OP-1. 
+Features include: 
+Basic mode for easy theme creation by modifying only global colors 
+Advanced mode for SVG specific element IDs for deeper customization
+Try your theme before applying using the Preview window
+Easy editing of community themes
+cool colorful boxes
+
+
+![OP1GLITTER](https://github.com/epixjava/op1REpackerGUI/blob/main/assets/GlitterB.png)
+
+![OP1GLITTERADV](https://github.com/epixjava/op1REpackerGUI/blob/main/assets/GlitterADV.png)
+
+
+The orginal tool can be found here: 
+
+I hope you enjoy using this tool as much as I have. Excited to see what you come up with! 
+
+### Opie Toolkit plus 
 
 The opie toolkit has been added to give you even more control over your OP-1. 
 features such as: Full device backup, flac A/B side song rips and more.
@@ -27,25 +49,40 @@ Error handeling for troubleshooting messed up files.
 ```
  pip install -r requirements.txt
 ```
-3. Test by running 
+or if on Mac OS
 ```
-python3 main.py 
+pip3 install -r requirements.txt 
+
+
+2. Test by running 
+```
+ python3 main.py 
 ```
 in the same terminal window. 
 
 op1REpacker should start.
 
-For macOS Arm devices install libusb with homebrew 
+For macOS Arm devices install libusb with homebrew this is needed for opie to function correctly 
 
 ```
-brew install libusb
+ brew install libusb
 ```
 
+For Windows systems The Glitter Theme Engine uses cairosvg which requires GTK+ to run correctly 
 
-# OP-1 REpacker
+Install using the latest release found here 
 
-*Taken from the op1repacker readme* op1repacker is a tool for unpacking and repacking OP-1 synthesizer firmware. It's based on
-the collective research we've done at the [op-forums.com custom firmware thread](https://op-forums.com/t/custom-firmware-on-the-op-1/4283/680). 
+```
+https://github.com/tschoonj/GTK-for-Windows-Runtime-Environment-Installer
+```
+See the INSTALL.md file for more installation information if you run into trouble with these steps  
+
+
+#OP-1 REpackerGUI
+
+*Taken from the op1repacker readme* 
+op1repacker is a tool for unpacking and repacking OP-1 synthesizer firmware. It's based on
+the collective research  done at the [op-forums.com custom firmware thread](https://op-forums.com/t/custom-firmware-on-the-op-1/4283/680). 
 This allows you to access and modify the files within the firmware as well as
 repacking the files into a valid installable firmware file. Ready made mods
 are also included in the tool (see [Modify](#modify)). Lastly it is also
@@ -93,7 +130,7 @@ Run the app using
 python3 main.py
 ```
 
-Enjoy using op1REpacker! 
+Enjoy using op1REpackerGUI! 
 
 ## Features
 
@@ -105,9 +142,9 @@ The firmware is unpacked to a new folder in the same location as the firmware
 file is. If you unpack the firmware file `op1_246.op1` at `/home/user/op1/`
 you'll get a folder `/home/user/op1/op1_246/` containing the unpacked files.
 The same logic works for repacking, the new firmware file is saved in the same
-location, but the name will be `op1_246-repacked.op1`.
+location, but the name will be `op1_246-REpacked.op1`.
 
-REpack after you enable your modifications. 
+REpack after you enable your modifications and themes 
 
 
 ### Analyze
@@ -180,7 +217,6 @@ Currently available mods are:
  
    
 
-
 To enable a mod, first unpack the firmware, select the mods you want 
 then click "Modify" op1REpacker will let you know 
 when the mods have been applied. Rememeber to repack and upload the 
@@ -189,7 +225,8 @@ firmware when complete!
 More modifications will be added later....
 
 
-## opieREworked
+## opie toolkit plus
+
 Opie is the desktop frand for the OP-1. 
 
 ![opie](https://github.com/epixjava/op1REpackerGUI/blob/main/assets/opie.png)
@@ -207,7 +244,7 @@ Pretty ASCII art.
 ## usin' it
 Run the opie toolkit from the op1REpacker tool. 
 
-Opie will open in the exisiting terminal window
+Opie will open in the existing terminal window
 
 In the terminal window enter one of the following commands; 
 "Backup"
@@ -219,6 +256,9 @@ In the terminal window enter one of the following commands;
 "Exit"
 
 An "opie" folder is created in your users folder. Your backups and rips will be saved here. 
+
+Mac os: Macintosh HD\Users\username\opie
+Windows: C:\Users\username
 
 
 ## Issues 
@@ -234,13 +274,15 @@ If you want to contribiute to the project, message me.
 
 
 ## Credits 
-All credit goes to the op1hacks repo, creator of op1repacker, richrd, and creator of opie toolkit, mcginty.
+All credit goes to the op1hacks repo, creator of op1repacker, richrd, creator of opie toolkit, mcginty and Nanobot567 creator of op-1 glitter. 
 
 https://github.com/richrd
 
 https://github.com/mcginty
 
 https://github.com/tabascoeye
+
+https://github.com/Nanobot567
 
 https://github.com/op1hacks
 
