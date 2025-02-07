@@ -17,7 +17,7 @@ The original tool can be found here: https://github.com/op1hacks/op1repacker
 Glitter has been added to op1REpackerGUI! The ultimate theme creator for your OP-1. 
 Features include: 
 Basic mode for easy theme creation by modifying only global colors 
-Advanced mode for SVG specific element IDs for deeper customization
+Advanced mode for SVG specific element IDs allowing for deeper customization
 Try your theme before applying using the Preview window
 Easy editing of community themes
 cool colorful boxes

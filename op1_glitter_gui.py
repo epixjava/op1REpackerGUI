@@ -339,30 +339,32 @@ class OP1GlitterGUI:
     def save_sparkle_theme(self):
         theme_name = self.theme_name_entry.get().strip() or "theme"
         theme_description = self.theme_description_entry.get().strip() or "Theme created with Glitter theme engine"
-    
+
         theme = {
-            f"{theme_name}": [
-                theme_description
-            ],
+            "theme_meta": {
+                "name": theme_name,
+                "description": theme_description,
+                "author": "Glitter User"
+            },
             "global": {}
         }
-    
+
         for i in range(len(self.default_colors)):
             top_value = self.top_color_entries[i].get().strip()
             bottom_value = self.bottom_color_entries[i].get().strip()
-        
+    
             if not top_value:
                 top_value = self.default_colors[i]
             if not top_value.startswith('#'):
                 top_value = f"#{top_value}"
-            
+        
             if bottom_value:
                 if not bottom_value.startswith('#'):
                     bottom_value = f"#{bottom_value}"
                 theme["global"][top_value] = bottom_value
-    
+
         filename = f"{theme_name}.json"
-    
+
         try:
             filepath = os.path.join(self.theme_dir, filename)
             with open(filepath, 'w') as f:
@@ -371,7 +373,6 @@ class OP1GlitterGUI:
             self.theme_dropdown.configure(values=self.get_available_themes())
         except Exception as e:
             messagebox.showerror("Error", f"Failed to save theme: {str(e)}")
-
 
     def show_theme_guide(self):
         guide_window = ctk.CTkToplevel(self.window)
@@ -571,8 +572,12 @@ class AdvancedModeWindow:
         self.window.geometry("900x1024")
         
         self.theme_data = {
-            "theme_meta": [""],
-            "global": {},
+            "theme_meta": {
+                "name": "",
+                "description": "", 
+                "author": ""
+            },
+            "global": {}
         }
         
         self.firmware_path = self.main_window.firmware_path
@@ -917,10 +922,14 @@ class AdvancedModeWindow:
     
     def save_theme(self):
         theme_name = self.theme_name.get().strip() or "theme"
-        theme_desc = self.theme_desc.get().strip()
-
+        theme_desc = self.theme_desc.get().strip() or "Theme created with Glitter theme engine"
+    
         self.theme_data = {
-            "theme_meta": [theme_desc] if theme_desc else ["Theme created with Glitter theme engine"],
+            "theme_meta": {
+                "name": theme_name,
+                "description": theme_desc,
+                "author": "Glitter User"  
+            },
             "global": {}
         }
 

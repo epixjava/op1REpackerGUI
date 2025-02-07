@@ -1,0 +1,17 @@
+{
+  "theme_meta": {
+    "name": "Preview Theme",
+    "description": "First theme made with this tool, made for iter lab svg. Similar to Sand Dunes theme",
+    "author": "Epixjava"
+  },
+  "global": {
+    "#00ed95": "#e28743",
+    "#ff3a5d": "#ebb678",
+    "#698eff": "#2596be",
+    "#ffffff": "#063970",
+    "#00475b": "#44bcd8",
+    "#353238": "#abdbe3",
+    "#4e2832": "#cce7e8",
+    "#5f4270": "#383572"
+  }
+}

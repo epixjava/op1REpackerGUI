@@ -1,0 +1,19 @@
+{
+  "theme_meta": {
+    "name": "Cyber2077",
+    "description": "Cyberpunk 2077 inspired theme",
+    "author": "Epixjava"
+  },
+  "global": {
+    "#00ed95": "#7dc7b8",
+    "#ff3a5d": "#c23a5a",
+    "#698eff": "#477973",
+    "#dfd9ff": "#435a64",
+    "#ffffff": "#dda68a",
+    "#aeb1dc": "#7a4d53",
+    "#9256d7": "#244c4d",
+    "#4d9eff": "#8d2f4a",
+    "#383572": "#1c3340",
+    "#353238": "#abdbe3"
+  }
+}
