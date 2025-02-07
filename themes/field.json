@@ -1,7 +1,9 @@
 {
-  "theme_meta": [
-    "OP-1 field color scheme (incomplete)"
-  ],
+  "theme_meta": {
+    "name": "field",
+    "description": "Incomplete OP-1 field color scheme.",
+    "author": "nanobot567"
+  },
   "global": {
     "#00ed95": "#b88f5b",
     "#ff3a5d": "#ed4528",
