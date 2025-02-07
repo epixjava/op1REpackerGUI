@@ -12,7 +12,7 @@ from io import BytesIO
 
 # Thanks to Nanobot567, creator of op1-glitter, for the inspiration and glitter functions!
 
-# Glitter Theme Engine created by Epixjava 
+# Glitter Theme Engine created by Epixjava - 2025
 
 
 class OP1GlitterGUI:

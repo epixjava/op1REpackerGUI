@@ -18,7 +18,7 @@ from PIL import Image
 
 
 #Original op1repacker v0.2.6 by richrd
-#OP1REpackerGUI by Epixjava 
+#OP1REpackerGUI by Epixjava - 2024
 
 #TODO final documentation install write up, directory structure clean up?
 
