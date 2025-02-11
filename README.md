@@ -28,7 +28,7 @@ cool colorful boxes
 ![OP1GLITTERADV](https://github.com/epixjava/op1REpackerGUI/blob/main/assets/GlitterADV.png)
 
 
-The orginal tool can be found here: 
+The orginal tool can be found here: https://github.com/Nanobot567/op1-glitter 
 
 I hope you enjoy using this tool as much as I have. Excited to see what you come up with! 
 
