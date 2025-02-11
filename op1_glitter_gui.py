@@ -53,7 +53,16 @@ class OP1GlitterGUI:
         self.main_frame = ctk.CTkFrame(self.window)
         self.main_frame.pack(pady=10, padx=10, fill="both", expand=True)
         
-        ctk.CTkLabel(self.top_frame, text="Select Theme:").pack(side="left", padx=5)
+        self.advanced_mode_var = tk.BooleanVar(value=False)
+        self.advanced_mode_switch = ctk.CTkSwitch(
+            self.top_frame,
+            text="Advanced Mode",
+            command=self.toggle_advanced_mode,
+            variable=self.advanced_mode_var
+        )
+        self.advanced_mode_switch.pack(side="left", padx=10, pady=5) 
+        
+        ctk.CTkLabel(self.top_frame, text="Select Theme:").pack(side="left",padx=10)
         self.theme_var = tk.StringVar()
         self.theme_dropdown = ctk.CTkOptionMenu(
             self.top_frame,
@@ -61,25 +70,20 @@ class OP1GlitterGUI:
             values=self.get_available_themes(),
             command=self.update_preview
         )
-        self.theme_dropdown.pack(side="left", padx=5)
+        self.theme_dropdown.pack(side="left", padx=10)
         
         ctk.CTkButton(
             self.top_frame,
             text="Add New Theme",
             command=self.add_new_theme
-        ).pack(side="right", padx=5)
+        ).pack(side="right", padx=10)
         
         ctk.CTkButton(
             self.top_frame,
             text="Apply Theme",
             command=self.apply_theme
-        ).pack(side="right", padx=5)
+        ).pack(side="left", padx=10)
         
-        ctk.CTkButton(
-            self.top_frame,
-            text="How to use",
-            command=self.show_theme_guide
-        ).pack(side="right", padx=5)
         
         preview_frame = ctk.CTkFrame(self.main_frame)
         preview_frame.pack(pady=10, padx=10, fill="x")
@@ -91,10 +95,10 @@ class OP1GlitterGUI:
         
         self.toggle_button = ctk.CTkButton(
             preview_header,
-            text="Theme: Off",  
+            text="Toggle theme:",  
             command=self.toggle_preview
         )
-        self.toggle_button.pack(side="right", padx=5)
+        self.toggle_button.pack(side="right", padx=10)
         
         self.preview_canvas = tk.Canvas(
             preview_frame,
@@ -202,39 +206,46 @@ class OP1GlitterGUI:
 
         input_container = ctk.CTkFrame(save_container)
         input_container.pack(side=tk.LEFT, padx=10)
-        
+
         self.theme_name_entry = ctk.CTkEntry(
             input_container,
             placeholder_text="Theme name",
             width=200
         )
         self.theme_name_entry.pack(pady=(0, 5))
-        
+
         self.theme_description_entry = ctk.CTkEntry(
             input_container,
             placeholder_text="Theme description (optional)",
             width=200
         )
         self.theme_description_entry.pack()
-        
+
+        right_container = ctk.CTkFrame(save_container)
+        right_container.pack(side=tk.RIGHT, padx=10)
+
+        self.theme_author_entry = ctk.CTkEntry(
+            right_container,
+            placeholder_text="Author (optional)",
+            width=200
+        )
+        self.theme_author_entry.pack(pady=(0, 5))
+
         save_button = ctk.CTkButton(
-            save_container,
+            right_container,
             text="Save Theme",
             command=self.save_sparkle_theme
         )
-        save_button.pack(side=tk.LEFT, padx=10)
+        save_button.pack()
         
         bottom_frame = ctk.CTkFrame(self.window)
         bottom_frame.pack(pady=5, padx=10, fill="x", side="bottom")
         
-        self.advanced_mode_var = tk.BooleanVar(value=False)
-        self.advanced_mode_switch = ctk.CTkSwitch(
+        ctk.CTkButton(
             bottom_frame,
-            text="Advanced Mode",
-            command=self.toggle_advanced_mode,
-            variable=self.advanced_mode_var
-        )
-        self.advanced_mode_switch.pack(side="left", padx=10, pady=5) 
+            text="How to use",
+            command=self.show_theme_guide
+        ).pack(side="left", padx=5)
         
     def update_top_color(self, index):
         try:
@@ -303,10 +314,10 @@ class OP1GlitterGUI:
         self.showing_themed = not self.showing_themed
         if not self.showing_themed:
             self.render_svg(self.preview_path)
-            self.toggle_button.configure(text="Theme: Off")
+            self.toggle_button.configure(text="Toggle theme: Off")
         elif self.current_theme_data:
             self.render_svg(self.preview_path, self.current_theme_data)
-            self.toggle_button.configure(text="Theme: On")
+            self.toggle_button.configure(text="Toggle theme: On")
  
             
     def update_preview(self, *args):
@@ -339,12 +350,13 @@ class OP1GlitterGUI:
     def save_sparkle_theme(self):
         theme_name = self.theme_name_entry.get().strip() or "theme"
         theme_description = self.theme_description_entry.get().strip() or "Theme created with Glitter theme engine"
+        theme_author = self.theme_author_entry.get().strip() or "Glitter User"
 
         theme = {
             "theme_meta": {
                 "name": theme_name,
                 "description": theme_description,
-                "author": "Glitter User"
+                "author": theme_author
             },
             "global": {}
         }
@@ -653,7 +665,7 @@ class AdvancedModeWindow:
             command=self.apply_theme,
             width=200
         )
-        apply_button.pack(anchor="w", padx=5, pady=(0, 10))
+        apply_button.pack(anchor="w", padx=5, pady=(10, 10))
 
         preview_area = ctk.CTkFrame(preview_frame)
         preview_area.pack(side="right", pady=10, padx=10, fill="both", expand=True)
@@ -666,7 +678,7 @@ class AdvancedModeWindow:
 
         self.toggle_button = ctk.CTkButton(
             preview_header,
-            text="Theme: Off",  
+            text="Toggle Theme:",  
             command=self.toggle_preview,
             width=100
         )
@@ -698,113 +710,153 @@ class AdvancedModeWindow:
     
     def create_global_section(self):
         global_frame = ctk.CTkFrame(self.window)
-        global_frame.pack(fill="x", padx=10, pady=5)
-    
+        global_frame.pack(fill="x", padx=5)
+
+        header_frame = ctk.CTkFrame(global_frame)
+        header_frame.pack(fill="x", pady=2)
+
         ctk.CTkLabel(
-            global_frame,
+            header_frame,
             text="Global Color Mappings and Element IDs",
             font=("Helvetica", 16)
-        ).pack(pady=5)
-        
-    
+        ).pack(side="left", padx=2, pady=2)
+
+        buttons_frame = ctk.CTkFrame(header_frame)
+        buttons_frame.pack(side="right", padx=2)
+
+        add_global_button = ctk.CTkButton(
+            buttons_frame,
+            text="Add global color ",
+            command=self.add_global_mapping
+        )
+        add_global_button.pack(side="left", padx=5)
+
+        remove_global_button = ctk.CTkButton(
+            buttons_frame,
+            text="Remove global color ",
+            command=self.remove_last_global_mapping
+        )
+        remove_global_button.pack(side="left", padx=2)
+
         split_container = ctk.CTkFrame(global_frame)
-        split_container.pack(fill="both", expand=True, pady=5)
-    
-        colors_frame = ctk.CTkFrame(split_container)
-        colors_frame.pack(side="left", fill="both", expand=True, padx=(0, 5))
-    
+        split_container.pack(fill="both", expand=True, pady=2)
+
+        self.colors_frame = ctk.CTkScrollableFrame(split_container)
+        self.colors_frame.pack(side="left", fill="both", expand=True, padx=(1, 5))
+
         self.color_entries = []
-        for i, color in enumerate(self.default_colors):
-            row_frame = ctk.CTkFrame(colors_frame)
-            row_frame.pack(pady=2)
-        
-            orig_canvas = tk.Canvas(
-                row_frame, 
-                width=20, 
-                height=20, 
-                bg=color
-            )
-            orig_canvas.pack(side="left", padx=5)
-        
-            orig_entry = ctk.CTkEntry(
-                row_frame,
-                width=100,
-                placeholder_text="Original"
-            )
-            orig_entry.insert(0, color)
-            orig_entry.pack(side="left", padx=5)
-        
-            ctk.CTkLabel(
-                row_frame,
-                text="→"
-            ).pack(side="left", padx=5)
-        
-            new_entry = ctk.CTkEntry(
-                row_frame,
-                width=100,
-                placeholder_text="New color"
-            )
-            new_entry.pack(side="left", padx=5)
-        
-            new_canvas = tk.Canvas(
-                row_frame,
-                width=20,
-                height=20,
-                bg="white"
-            )
-            new_canvas.pack(side="left", padx=5)
-        
-            self.color_entries.append({
-                'original': orig_entry,
-                'new': new_entry,
-                'orig_preview': orig_canvas,
-                'new_preview': new_canvas
-            })
-        
-            new_entry.bind(
-                '<KeyRelease>',
-                lambda e, canvas=new_canvas: self.update_color_preview(e, canvas)
-            )
-    
+        for color in self.default_colors:
+            self.add_global_mapping_row(color)
+
         right_frame = ctk.CTkFrame(split_container)
-        right_frame.pack(side="right", fill="both", expand=True, padx=(5, 0))
+        right_frame.pack(side="right", fill="both", expand=True, padx=(0, 0))
+
+        self.right_scroll_frame = ctk.CTkScrollableFrame(right_frame, height=300)
+        self.right_scroll_frame.pack(fill="both", expand=True, pady=1)
     
     
-        self.right_scroll_frame = ctk.CTkScrollableFrame(right_frame, height=200)
-        self.right_scroll_frame.pack(fill="both", expand=True, pady=5)
+    def add_global_mapping(self, initial_color=None):
+        self.add_global_mapping_row(initial_color)
+
+
+    def add_global_mapping_row(self, initial_color=None):
+        row_frame = ctk.CTkFrame(self.colors_frame)
+        row_frame.pack(pady=2)
+
+        orig_canvas = tk.Canvas(
+            row_frame, 
+            width=20, 
+            height=20, 
+            bg=initial_color if initial_color else "#ffffff"
+        )
+        orig_canvas.pack(side="left", padx=5)
+
+        orig_entry = ctk.CTkEntry(
+            row_frame,
+            width=100,
+            placeholder_text="Original"
+        )
+        if initial_color:
+            orig_entry.insert(0, initial_color)
+        orig_entry.pack(side="left", padx=5)
+
+        ctk.CTkLabel(
+            row_frame,
+            text="→"
+        ).pack(side="left", padx=5)
+
+        new_entry = ctk.CTkEntry(
+            row_frame,
+            width=100,
+            placeholder_text="New color"
+        )
+        new_entry.pack(side="left", padx=5)
+
+        new_canvas = tk.Canvas(
+            row_frame,
+            width=20,
+            height=20,
+            bg="white"
+        )
+        new_canvas.pack(side="left", padx=5)
+
+        self.color_entries.append({
+            'original': orig_entry,
+            'new': new_entry,
+            'orig_preview': orig_canvas,
+            'new_preview': new_canvas,
+            'row_frame': row_frame
+        })
+
+        orig_entry.bind(
+            '<KeyRelease>',
+            lambda e, canvas=orig_canvas: self.update_color_preview(e, canvas)
+        )
+        new_entry.bind(
+            '<KeyRelease>',
+            lambda e, canvas=new_canvas: self.update_color_preview(e, canvas)
+        )
+
+        return row_frame
+
+
+    def remove_last_global_mapping(self):
+        if len(self.color_entries) > len(self.default_colors):  
+            last_entry = self.color_entries.pop()
+            last_entry['row_frame'].destroy()
     
       
     def create_svg_section(self):
         svg_frame = ctk.CTkFrame(self.window)
-        svg_frame.pack(fill="x", padx=10, pady=5)
+        svg_frame.pack(fill="x", padx=5, pady=5)
 
         header_frame = ctk.CTkFrame(svg_frame)
         header_frame.pack(fill="x", pady=5)
 
-        left_container = ctk.CTkFrame(header_frame)
-        left_container.pack(side="left", fill="x", expand=True, padx=5)
+        svgmap_container = ctk.CTkFrame(header_frame)
+        svgmap_container.pack(side="left", fill="x", expand=True, padx=2)
 
         ctk.CTkLabel(
-            left_container,
+            svgmap_container,
             text="SVG Element ID Mappings",
             font=("Helvetica", 16)
-        ).pack(side="left", pady=5, padx=5)
+        ).pack(side="left", padx=5)
 
         add_svg_button = ctk.CTkButton(
-            left_container,
+            svgmap_container,
             text="Add SVG Mapping",
             command=self.add_svg_section
         )
-        add_svg_button.pack(side="left", padx=5)
+        add_svg_button.pack(side="right", padx=3)
 
         remove_svg_button = ctk.CTkButton(
-            left_container,
+            svgmap_container,
             text="Remove SVG Mapping",
             command=self.remove_last_svg_section
         )
-        remove_svg_button.pack(side="left", padx=5)
+        remove_svg_button.pack(side="right", padx=3)
 
-        self.svg_sections_frame = ctk.CTkScrollableFrame(svg_frame, height=400)
+        self.svg_sections_frame = ctk.CTkScrollableFrame(svg_frame, height=250)
         self.svg_sections_frame.pack(fill="x", pady=5, expand=True)
 
         self.add_svg_section()
@@ -827,12 +879,12 @@ class AdvancedModeWindow:
         header_frame.pack(fill="x", pady=2)
 
         name_frame = ctk.CTkFrame(header_frame)
-        name_frame.pack(side="left", fill="x", expand=True)
+        name_frame.pack(side="left", fill="x", expand=False)
 
         svg_name_entry = ctk.CTkEntry(
             name_frame,
-            placeholder_text="SVG filename (without extension)",
-            width=200
+            placeholder_text="SVG filename (Without Extension)",
+            width=250
         )
         svg_name_entry.pack(side="left", padx=5)
 
@@ -841,7 +893,7 @@ class AdvancedModeWindow:
 
         add_mapping_button = ctk.CTkButton(
             buttons_frame,
-            text="Add Mapping",
+            text="Add Element ID",
             width=100,
             command=lambda: self.add_color_mapping(color_mappings_frame)
         )
@@ -849,11 +901,11 @@ class AdvancedModeWindow:
 
         remove_mapping_button = ctk.CTkButton(
             buttons_frame,
-            text="Remove Mapping",
+            text="Remove Element ID",
             width=100,
             command=lambda: self.remove_last_mapping_from_frame(color_mappings_frame)
         )
-        remove_mapping_button.pack(side="left", padx=2)
+        remove_mapping_button.pack(side="left", padx=3)
 
         color_mappings_frame = ctk.CTkFrame(section_frame)
         color_mappings_frame.pack(fill="x", pady=2)
@@ -923,21 +975,26 @@ class AdvancedModeWindow:
     def save_theme(self):
         theme_name = self.theme_name.get().strip() or "theme"
         theme_desc = self.theme_desc.get().strip() or "Theme created with Glitter theme engine"
-    
+        theme_author = self.theme_author.get().strip() or "Glitter User"
+        
         self.theme_data = {
             "theme_meta": {
                 "name": theme_name,
                 "description": theme_desc,
-                "author": "Glitter User"  
+                "author": theme_author  
             },
             "global": {}
         }
 
-        for entry in self.color_entries:
+        for entry in self.color_entries:  
             orig = entry['original'].get().strip()
             new = entry['new'].get().strip()
-            if orig and new:
-                self.theme_data["global"][orig] = new
+        if orig and new:
+            if not orig.startswith('#'):
+                orig = f"#{orig}"
+            if not new.startswith('#'):
+                new = f"#{new}"
+            self.theme_data["global"][orig] = new
 
         for svg_section in self.svg_sections_frame.winfo_children():
             svg_name = svg_section.winfo_children()[0].winfo_children()[0].winfo_children()[0].get().strip()
@@ -1069,6 +1126,7 @@ class AdvancedModeWindow:
         except Exception as e:
             messagebox.showerror("Error", f"Failed to load SVG: {str(e)}")
 
+
     def update_id_viewer(self, svg_path):
         
         if self.id_load_after:
@@ -1144,7 +1202,7 @@ class AdvancedModeWindow:
             if self.svg_var.get() in ["No SVG files found", "Error loading SVG files", "Select an SVG file"]:
                 if not self.showing_themed:
                     self.render_svg(self.preview_path)
-                    self.toggle_button.configure(text="Theme: Off")
+                    self.toggle_button.configure(text="Toggle Theme: Off")
                 else:
                     if not self.current_theme_data:
                         theme_selection = self.theme_var.get()
@@ -1155,11 +1213,11 @@ class AdvancedModeWindow:
                             self.showing_themed = False
                             return
                     self.render_svg(self.preview_path, self.current_theme_data)
-                    self.toggle_button.configure(text="Theme: On")
+                    self.toggle_button.configure(text="Toggle Theme: On")
             else:
                 if not self.showing_themed:
                     self.render_svg(self.current_svg_path)
-                    self.toggle_button.configure(text="Theme: Off")
+                    self.toggle_button.configure(text="Toggle Theme: Off")
                 else:
                     if not self.current_theme_data:
                         theme_selection = self.theme_var.get()
@@ -1170,7 +1228,7 @@ class AdvancedModeWindow:
                             self.showing_themed = False
                             return
                     self.render_svg(self.current_svg_path, self.current_theme_data)
-                    self.toggle_button.configure(text="Theme: On")
+                    self.toggle_button.configure(text="Toggle Theme: On")
         except Exception as e:
             messagebox.showerror("Error", f"Failed to toggle preview: {str(e)}")
     
@@ -1200,14 +1258,26 @@ class AdvancedModeWindow:
                     widget.destroy()
 
             if isinstance(self.current_theme_data.get('global'), dict):
-                for entry in self.color_entries:
+                while len(self.color_entries) > len(self.default_colors):
+                    self.remove_last_global_mapping()
+
+                for entry in self.color_entries[:len(self.default_colors)]:
                     orig_color = entry['original'].get().strip()
                     if orig_color in self.current_theme_data['global']:
                         new_color = self.current_theme_data['global'][orig_color]
                         entry['new'].delete(0, 'end')
                         entry['new'].insert(0, new_color)
-                        if new_color.startswith('#'):  
+                        if new_color.startswith('#'):
                             entry['new_preview'].configure(bg=new_color)
+
+                for orig_color, new_color in self.current_theme_data['global'].items():
+                    if orig_color not in self.default_colors:
+                        row = self.add_global_mapping(orig_color)
+                        entry = self.color_entries[-1]
+                        entry['new'].delete(0, 'end')
+                        entry['new'].insert(0, new_color)
+                    if new_color.startswith('#'):
+                        entry['new_preview'].configure(bg=new_color)
 
             has_svg_mappings = False
         
@@ -1271,10 +1341,10 @@ class AdvancedModeWindow:
     
     def theme_controls(self):
         controls_frame = ctk.CTkFrame(self.window)
-        controls_frame.pack(fill="x", padx=10, pady=5)
+        controls_frame.pack(fill="x", padx=5)
     
         input_frame = ctk.CTkFrame(controls_frame)
-        input_frame.pack(side="left", padx=10, pady=5)
+        input_frame.pack(side="left", padx=5, pady=5)
     
         name_frame = ctk.CTkFrame(input_frame)
         name_frame.pack(side="left", padx=5)
@@ -1296,24 +1366,40 @@ class AdvancedModeWindow:
     
         ctk.CTkLabel(
             desc_frame,
-            text="Description:"
+            text="Theme Description:"
         ).pack(anchor="w")
     
         self.theme_desc = ctk.CTkEntry(
             desc_frame,
-            placeholder_text="Enter theme description",
-            width=300
+            placeholder_text="Enter a description (optional)",
+            width=200
         )
-        self.theme_desc.pack(pady=(0, 5))
+        self.theme_desc.pack(pady=(0, 2))
     
         save_frame = ctk.CTkFrame(controls_frame)
-        save_frame.pack(side="right", padx=10, pady=5)
+        save_frame.pack(side="right", padx=15, pady=10)
     
+        author_frame = ctk.CTkFrame(input_frame)
+        author_frame.pack(side="left", padx=5)
+
+        ctk.CTkLabel(
+            author_frame,
+            text="Author:"
+        ).pack(anchor="w")
+
+        self.theme_author = ctk.CTkEntry(
+            author_frame,
+            placeholder_text="Your name here (optional)",
+            width=200
+        )
+        self.theme_author.pack(pady=(0, 2))
+
         ctk.CTkButton(
             save_frame,
             text="Save Theme",
-            command=self.save_theme
-        ).pack(pady=5)
+            command=self.save_theme,
+            width=200
+        ).pack(padx=10,pady=10)
     
     
     def toggle_basic_mode(self):
@@ -1387,6 +1473,7 @@ class AdvancedModeWindow:
         self.main_window.window.deiconify()
         self.window.destroy() 
 
+
 class SVGCache:
     def __init__(self):
         self._cache = {}
@@ -1404,6 +1491,7 @@ class SVGCache:
         
     def clear(self):
         self._cache.clear()
+
         
 class SVGParser:
     def __init__(self):
