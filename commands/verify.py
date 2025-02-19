@@ -1,12 +1,14 @@
 # verify.py
+import os
 import click
 import hashlib
 import tarfile
 from pathlib import Path
-from helpers import backups
+from helpers import u, op1, backups
 from datetime import datetime
+from tqdm import tqdm
 
-description = " Verify the integrity of OP-1 backup files"
+description = "Verify the integrity of OP-1 backup files"
 
 def calculate_file_hash(file_path):
     
@@ -46,7 +48,7 @@ def verify_backup_structure(archive_path):
     return len(issues) == 0, issues
 
 def store_backup_metadata(backup_path, metadata):
-
+    
     metadata_path = backup_path.with_suffix('.meta')
     try:
         with open(metadata_path, 'w') as f:
@@ -58,7 +60,6 @@ def store_backup_metadata(backup_path, metadata):
 @click.command()
 @click.argument('backup_file', required=False)
 def cli(backup_file=None):
-
     try:
         backups.assert_environment()
         

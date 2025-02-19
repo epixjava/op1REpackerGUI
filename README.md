@@ -44,10 +44,14 @@ Mod list with toggles and descriptions for ultimate customization.
 Error handeling for troubleshooting messed up files.
 
 
-# Install required packages
+# Getting it running 
 
 
-1. In the main folder for op1REpacker open a terminal window and run 
+Ensure you have Python3 installed on your system. 
+There are various guides to learn how to do this.
+A standard Python3 install will work just fine. Feel free to ask questions if needed! 
+
+1. In the main folder for op1REpackerGUI open a terminal window and run 
 ```
  pip install -r requirements.txt
 ```
@@ -60,22 +64,22 @@ pip3 install -r requirements.txt
 ```
  python3 main.py 
 ```
-in the same terminal window. 
+in the same terminal window
 
-op1REpacker should start.
+op1REpackerGUI should start
 
-For macOS Arm devices install libusb with homebrew this is needed for opie to function correctly 
+!For macOS Arm devices; I had to install libusb with homebrew. This is needed for opie to function correctly. see https://brew.sh for how to install homebrew 
 
 ```
  brew install libusb
 ```
 
-For Windows systems The Glitter Theme Engine uses cairosvg which requires GTK+ to run correctly 
+!!For Windows systems, The Glitter Theme Engine requires GTK to run correctly. This is due to an issue with cairosvg on windows 
 
-Install using the latest release found here 
+Install using the latest release found here. No extra setup necessary
 
 ```
-https://github.com/tschoonj/GTK-for-Windows-Runtime-Environment-Installer
+ https://github.com/tschoonj/GTK-for-Windows-Runtime-Environment-Installer
 ```
 See the INSTALL.md file for more installation information if you run into trouble with these steps  
 
@@ -110,46 +114,22 @@ this software. You will void your OP-1 warranty and in extremely unlikely cases,
 Use at your own risk! 
 
 
-## Installation
-
-Ensure you have Python3 installed 
-
-Download a copy of the source code from this repo. 
-
-Open a terminal window pointing to the folder that op1REpacker's  main.py file is located in. 
-
-Install dependancies by running 
-```
-pip install -r requirements.txt
-```
-I had to use pip3 on macOS so,
-```
-pip3 install -r requirements.txt
-```
-
-Run the app using 
-```
-python3 main.py
-```
-
-Enjoy using op1REpackerGUI! 
-
 ## Features
 
 
-### Unpack & Repack
+### Unpack & Repack 
 
 To start you need to unpack your firmware. Select the firmware you want to modify in the file browser window. 
-The firmware is unpacked to a new folder in the same location as the firmware
-file is. If you unpack the firmware file `op1_246.op1` at `/home/user/op1/`
+The firmware is unpacked to a new folder in the same location that the firmware file is stored
+If you unpack the firmware file `op1_246.op1` at `/home/user/op1/`
 you'll get a folder `/home/user/op1/op1_246/` containing the unpacked files.
 The same logic works for repacking, the new firmware file is saved in the same
 location, but the name will be `op1_246-REpacked.op1`.
 
-REpack after you enable your modifications and themes 
+repack AFTER you enable your modifications and themes 
 
 
-### Analyze
+### Analyze 
 
 After unpacking a firmware file you can analyze the firmware directory.
 Make sure the unpacked firmware folder is selected in the file browser window
@@ -170,7 +150,7 @@ Example output:
 The main reason you are using this program! Here you can select from a list of mods and gfx patches. 
 
 The firmware can be automatically modified with some predefined mods.
-These have been tested on the firmware version 246.
+These have been tested on the current firmware, version 246.
 Currently available mods are:
 
  * iter
@@ -244,7 +224,7 @@ Pretty ASCII art.
 
 
 ## usin' it
-Run the opie toolkit from the op1REpacker tool. 
+Run the opie toolkit from the op1REpackerGUI tool. 
 
 Opie will open in the existing terminal window
 
@@ -260,7 +240,7 @@ In the terminal window enter one of the following commands;
 An "opie" folder is created in your users folder. Your backups and rips will be saved here. 
 
 Mac os: Macintosh HD\Users\username\opie
-Windows: C:\Users\username
+Windows: C:\Users\username\opie
 
 
 ## Issues 

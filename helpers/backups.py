@@ -2,13 +2,12 @@ import os
 import tarfile
 from datetime import datetime
 from tqdm import tqdm
-from helpers import op1, u  
+from helpers import op1, u  # Import our updated u.py helper
 
 def get_backups_dir():
-
+    
     backups_dir = os.path.join(u.HOME, "backups")
     return backups_dir
-
 
 BACKUPS_DIR = get_backups_dir()
 
@@ -26,7 +25,6 @@ def generate_archive(mount=None, backups_dir=None):
     if backups_dir is None:
         backups_dir = BACKUPS_DIR
 
-    
     os.makedirs(backups_dir, exist_ok=True)
 
     timestamp = datetime.now().strftime("%Y-%m-%d-%H%M%S")
@@ -35,9 +33,7 @@ def generate_archive(mount=None, backups_dir=None):
     
     print(f"Writing backup as {archive_path}")
     
-    
     mount = os.path.normpath(mount)
-    
     
     total_items = sum([len(files) + len(dirs) for _, dirs, files in os.walk(mount)])
     
@@ -74,17 +70,21 @@ def restore_archive(archive_path, mount=None, progress_callback=None):
     
     if mount is None:
         mount = op1.get_mount_or_die_trying()
+
     archive_path = os.path.normpath(archive_path)
     mount = os.path.normpath(mount)
+
     if not os.path.exists(archive_path):
         raise FileNotFoundError(f"Backup file not found: {archive_path}")
-    
+
     if not op1.is_valid_mount(mount):  
         raise ValueError(f"Invalid mount point: {mount}")
+
     try:
         with tarfile.open(archive_path, "r:xz") as tar:
             members = tar.getmembers()
             total_members = len(members)
+
             for i, member in enumerate(members):
                 member.name = os.path.normpath(member.name)
                 tar.extract(member, path=mount)

@@ -6,7 +6,7 @@ from datetime import datetime
 from pathlib import Path
 from helpers import u, op1, backups
 
-description = "Choose a backup file and restore it to your OP-1"
+description = "Choose a backup file and restore it to a plugged-in OP-1"
 
 def list_backups(backup_dir):
     
@@ -33,7 +33,7 @@ def verify_backup_file(backup_path):
         raise ValueError(f"Backup file is empty: {backup_path}")
 
 def format_backup_info(backup_file):
-
+    
     mtime = backup_file.stat().st_mtime
     size = backup_file.stat().st_size
     
@@ -56,51 +56,51 @@ def cli():
         backup_files = list_backups(backups.BACKUPS_DIR)
         
         if not backup_files:
-            click.echo("\n No backups found in {backups.BACKUPS_DIR}")
+            click.echo("\nNo backups found in {backups.BACKUPS_DIR}")
             click.echo("Please create a backup first using the 'backup' command.")
             return
 
-        click.echo(f"\n Available backups in {backups.BACKUPS_DIR}:")
+        click.echo(f"\nAvailable backups in {backups.BACKUPS_DIR}:")
         for i, backup in enumerate(backup_files):
             click.echo(f"{i}. {format_backup_info(backup)}")
 
         while True:
             try:
-                choice = click.prompt('\n Choose a backup number', type=int)
+                choice = click.prompt('\nChoose a backup number', type=int)
                 if 0 <= choice < len(backup_files):
                     break
                 click.echo(f"Please enter a number between 0 and {len(backup_files)-1}")
             except click.Abort:
-                click.echo("\n Operation cancelled by user")
+                click.echo("\nOperation cancelled by user")
                 return
             except ValueError:
                 click.echo("Please enter a valid number")
 
         selected_backup = backup_files[choice]
-        click.echo(f"\n Selected backup: {format_backup_info(selected_backup)}")
+        click.echo(f"\nSelected backup: {format_backup_info(selected_backup)}")
 
         verify_backup_file(selected_backup)
 
-        click.echo("\n Verifying backup integrity...")
+        click.echo("\nVerifying backup integrity...")
         is_valid, issues = backups.verify_backup_before_restore(str(selected_backup))
         
         if not is_valid:
             click.echo("\n Backup verification failed!")
             for issue in issues:
                 click.echo(f" - {issue}")
-            if not click.confirm("\n Warning: This backup may be corrupted or incomplete. "
+            if not click.confirm("\nWarning: This backup may be corrupted or incomplete. "
                             "Do you want to proceed with restoration anyway?"):
                 click.echo("Operation cancelled")
                 return
-            click.echo("\n Proceeding with restoration despite warnings...")
+            click.echo("\nProceeding with restoration despite verification warnings...")
         else:
             click.echo(" Backup verification passed!")
 
-        click.echo("\n Connecting to OP-1...")
+        click.echo("\nConnecting to OP-1...")
         mount = op1.get_mount_or_die_trying()
         click.echo(f"OP-1 found at {mount}")
 
-        if not click.confirm("\n This will overwrite saved recordings on your OP-1. Continue?"):
+        if not click.confirm("\nThis will overwrite all data on your OP-1. Continue?"):
             click.echo("Operation cancelled")
             return
 
@@ -115,14 +115,14 @@ def cli():
             except Exception as e:
                 raise RuntimeError(f"Restore failed: {str(e)}")
 
-        click.echo("\n  Restore completed successfully!")
-        click.echo("\n Please safely eject your OP-1 using the 'eject' command.")
+        click.echo("\n✓ Restore completed successfully!")
+        click.echo("\nPlease safely eject your OP-1 using the 'eject' command.")
         
-        click.pause("\n Press any key to return to OP-1 REpacker")
+        click.pause("\nPress any key to return to OP-1 REpacker")
 
     except Exception as e:
-        click.echo(f"\n Error: {str(e)}", err=True)
-        click.echo("\n Restore failed. Please try again with a fresh backup.")
+        click.echo(f"\n✗ Error: {str(e)}", err=True)
+        click.echo("\nRestore failed. Please try again with a fresh backup.")
         sys.exit(1)
 
 if __name__ == "__main__":

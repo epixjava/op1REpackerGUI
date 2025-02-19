@@ -4,22 +4,17 @@ import sys
 import importlib.util
 
 
-# Opie version 0.1.0 by Epixjava 
-# Original  by mcginty
-
-
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 plugin_folder = os.path.join(os.path.dirname(__file__), 'commands')
 
-
 class OpieCLI(click.MultiCommand):
     opie_logo = r"""
-  ___    ____    _   _______
- / _ \  |  _ \  (_) | |_____| 
-| | | | | | | | | | | |__
-| | | | | |_| | | | | |__|
-| |_| | |  __/  | | | |_____  
- \___/  |_|     |_| |_|_____| 
+    ___    ____    _   _______
+   / _ \  |  _ \  (_) | |_____| 
+  | | | | | | | | | | | |__
+  | | | | | |_| | | | | |__|
+  | |_| | |  __/  | | | |_____  
+   \___/  |_|     |_| |_|_____| 
 
 *================================*
    | Your OP-1 's best frand! |
@@ -29,7 +24,6 @@ class OpieCLI(click.MultiCommand):
     def __init__(self, **attrs):
         click.MultiCommand.__init__(self, invoke_without_command=True, no_args_is_help=False, chain=False, **attrs)
     
-    
     def list_commands(self, ctx):
         rv = []
         for filename in os.listdir(plugin_folder):
@@ -37,7 +31,6 @@ class OpieCLI(click.MultiCommand):
                 rv.append(filename[:-3])
         rv.sort()
         return rv
-
 
     def get_command(self, ctx, name):
      ns = {}
@@ -47,13 +40,11 @@ class OpieCLI(click.MultiCommand):
          eval(code, ns, ns)
      return click.Command(name, callback=ns['cli'].callback)
 
-
     def get_command_description(self, name):
         spec = importlib.util.spec_from_file_location(name, os.path.join(plugin_folder, name + '.py'))
         module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(module)
         return getattr(module, 'description', 'No description available.')
-
 
     def print_help(self):
         commands = self.list_commands(None)
@@ -61,7 +52,6 @@ class OpieCLI(click.MultiCommand):
         for cmd in commands:
             description = self.get_command_description(cmd)
             print(f"  {cmd}: {description}")
-
 
     def invoke(self, ctx,):
         print(self.opie_logo)
@@ -78,9 +68,7 @@ class OpieCLI(click.MultiCommand):
             else:
                 print(f"Invalid command: {choice}. Please select from the list of available commands")
 
-
 cli = OpieCLI()
-
 
 if __name__ == '__main__':
     cli()

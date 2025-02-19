@@ -104,7 +104,9 @@ class OP1GlitterGUI:
             preview_frame,
             width=340,  
             height=170,  
-            bg='black'
+            bg='black',
+            highlightthickness=1, 
+            highlightbackground='gray10'
         )
         self.preview_canvas.pack(pady=15, padx=15)
 
@@ -185,7 +187,9 @@ class OP1GlitterGUI:
                 width=50,
                 height=50,
                 highlightthickness=0,
-                bd=0
+                bd=0,
+                bg='gray10'
+                
             )
             color_box.pack(pady=2)
             
@@ -688,7 +692,9 @@ class AdvancedModeWindow:
             preview_area,
             width=340,
             height=170,
-            bg='black'
+            bg='black',
+            highlightthickness=1,
+            highlightbackground='gray10'
         )
         self.preview_canvas.pack(pady=15, padx=15) 
     
@@ -767,6 +773,8 @@ class AdvancedModeWindow:
             row_frame, 
             width=20, 
             height=20, 
+            highlightthickness=1,
+            highlightcolor='black',
             bg=initial_color if initial_color else "#ffffff"
         )
         orig_canvas.pack(side="left", padx=5)
@@ -796,7 +804,9 @@ class AdvancedModeWindow:
             row_frame,
             width=20,
             height=20,
-            bg="white"
+            bg='gray10',
+            highlightthickness=1,
+            highlightbackground='gray45'
         )
         new_canvas.pack(side="left", padx=5)
 
@@ -960,7 +970,9 @@ class AdvancedModeWindow:
             row_frame,
             width=20,
             height=20,
-            bg="white"
+            bg='gray10',
+            highlightthickness=1,
+            highlightbackground='gray45'
         )
         new_canvas.pack(side="left", padx=5)
 

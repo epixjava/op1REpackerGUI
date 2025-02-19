@@ -4,7 +4,7 @@ import configparser
 from os import path
 
 def get_home_dir():
-
+    
     home = os.getenv("HOME") or os.getenv("USERPROFILE")
     if not home:
         raise EnvironmentError("Could not determine home directory - neither HOME nor USERPROFILE environment variables are set")

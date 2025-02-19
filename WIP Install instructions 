@@ -1,0 +1,24 @@
+macOS (ARM) M1-M4 based devices 
+
+1. Download a copy of the respoisitory from Github. 
+2. Install Python from python.org - (https://www.python.org/downloads/macos/)
+3. open a terminal in the root of the op1REpackerGUI directory 
+4. run ./install.sh and follow the prompts to setup op1REpackerGUI
+5. select yes to run or run the install script again after setup to launch the application 
+
+Congrats the program is setup! Read bellow for other ways to start the program 
+
+5.5 if the install.sh script does not work after setup, in a terminal window opened in the op1REpackerGUi directory, run "source .vrepacker/bin/activate"
+6. Then run "python3 main.py" to start the application 
+
+Windows10/11 ( run setup with add python.exe to path and use admin privileges when installing )
+
+1. clone directory 
+2. ensure python3 is installed from python.org - (https://www.python.org/downloads/windows/) Make sure to select "add python.exe to PATH" and select "use  admin privileges when installing."
+3. install GTK3 runtime using the latest installer - (https://github.com/tschoonj/GTK-for-Windows-Runtime-Environment-Installer) use recomended defaults 
+4. open a CMD window in the op1REpackerGUI directory
+5. run "pip install -r winrequirements.txt",then run "winget install FFmpeg" in the CMD window. 
+6. run the program with "python main.py" 
+
+
+mention install  a fresh firmware before installing a modified firmware always

@@ -11,6 +11,7 @@ from datetime import datetime
 from os import path
 from subprocess import check_call, PIPE, STDOUT, CalledProcessError
 
+# Define constants in a cross-platform way
 RIPS_DIR = os.path.join(u.HOME, "rips")
 
 def assert_environment():
@@ -21,7 +22,7 @@ def assert_environment():
         raise EnvironmentError(f"Failed to create rips directory at {RIPS_DIR}: {e}")
 
 def get_ffmpeg_binary():
-
+    
     if platform.system() == 'Windows':
         common_paths = [
             os.path.join(os.getenv('ProgramFiles'), 'ffmpeg', 'bin', 'ffmpeg.exe'),
@@ -66,7 +67,7 @@ def transcode(input_file, codec, output_file, codec_flags=None):
         ]
         
         command = base_command + codec_flags + [output_file]
-
+        
         os.makedirs(os.path.dirname(output_file), exist_ok=True)
         
         check_call(command, stderr=STDOUT)
@@ -107,8 +108,8 @@ def create_rip(mount, name):
             
             click.echo(f"Transcoding {side} to MP3 V0")
             transcode(flac_output, "libmp3lame", 
-                    os.path.join(fullpath, f"{side}.mp3"), 
-                    ["-q:a", "0"])
+                     os.path.join(fullpath, f"{side}.mp3"), 
+                     ["-q:a", "0"])
         
         click.echo("\nRipping completed successfully!")
         click.pause("Press any key to return to op1-REpacker")

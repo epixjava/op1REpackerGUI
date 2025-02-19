@@ -1,107 +1,129 @@
 import os
 import sys
 import time
-import usb.core
-import usb.util
+import opie
+import click
+import tarfile
 import platform
-from pathlib import Path
+from helpers import u, mount
 
+# Constants for OP-1 USB identification
 VENDOR_TE = 0x2367
 PRODUCT_OP1 = 0x0002
 OP1_BASE_DIRS = set(['tape', 'album', 'synth', 'drum'])
 
-def get_system_type():
-    system = platform.system().lower()
-    return system
+# Import Windows-specific modules only on Windows
+if platform.system() == 'Windows':
+    try:
+        import win32api
+        import win32file
+    except ImportError:
+        sys.exit("On Windows systems, this tool requires the pywin32 package. Please install it with: pip install pywin32 in terminal")
 
-def ensure_connection():
-    if not is_connected():
-        print("Please connect your OP-1 and put it in DISK mode (Shift+COM -> 3)...")
-        wait_for_connection()
+def get_removable_drives():
+    
+    if platform.system() != 'Windows':
+        return []
+        
+    drives = []
+    for letter in range(ord('A'), ord('Z')+1):
+        drive = chr(letter) + ':\\'
+        try:
+            drive_type = win32file.GetDriveType(drive)
+            if drive_type == win32file.DRIVE_REMOVABLE:
+                drives.append(drive)
+        except Exception as e:
+            continue
+    return drives
 
 def is_connected():
-    return usb.core.find(idVendor=VENDOR_TE, idProduct=PRODUCT_OP1) is not None
+    
+    if platform.system() == 'Windows':
+        return any(is_op1_drive(drive) for drive in get_removable_drives())
+    else:
+        try:
+            import usb.core
+            dev = usb.core.find(idVendor=VENDOR_TE, idProduct=PRODUCT_OP1)
+            return dev is not None
+        except ImportError:
+            sys.exit("On Unix-like systems, this tool requires pyusb. Please install it with: pip install pyusb")
 
-def wait_for_connection():
+def is_op1_drive(path):
+    
     try:
-        while True:
-            time.sleep(1)
-            if is_connected():
-                break
-    except KeyboardInterrupt:
-        sys.exit(0)
-
-def get_windows_mount_points():
-    from string import ascii_uppercase
-    return [f"{d}:\\" for d in ascii_uppercase if os.path.exists(f"{d}:\\")]
-
-def get_macos_mount_points():
-    volumes_path = Path("/Volumes")
-    if volumes_path.exists():
-        return [str(p) for p in volumes_path.iterdir() if p.is_dir()]
-    return []
-
-def get_linux_mount_points():
-    media_paths = [Path("/media"), Path("/mnt")]
-    mount_points = []
-    for base_path in media_paths:
-        if base_path.exists():
-            
-            mount_points.extend([str(p) for p in base_path.iterdir() if p.is_dir()])
-            if base_path.name == "media" and os.getenv("USER"):
-                user_media = base_path / os.getenv("USER")
-                if user_media.exists():
-                    mount_points.extend([str(p) for p in user_media.iterdir() if p.is_dir()])
-    return mount_points
-
-def validate_op1_mount(path):
-    try:
-        subdirs = set(entry.name for entry in os.scandir(path) if entry.is_dir())
+        path = os.path.normpath(path)
+        subdirs = set(u.get_visible_folders(path))
         return OP1_BASE_DIRS.issubset(subdirs)
     except (PermissionError, FileNotFoundError):
         return False
+    except Exception as e:
+        print(f"Warning: Unexpected error checking path {path}: {str(e)}")
+        return False
 
-def find_op1_mount():
-    system = get_system_type()
+def wait_for_connection():
     
-    
-    if system == "windows":
-        mount_points = get_windows_mount_points()
-    elif system == "darwin":
-        mount_points = get_macos_mount_points()
-    elif system == "linux":
-        mount_points = get_linux_mount_points()
-    else:
-        print(f"Unsupported operating system: {system}")
-        return None
-
-    
-    for mount_point in mount_points:
-        if validate_op1_mount(mount_point):
-            return mount_point
-
-    return None
-
-def wait_for_op1_mount(timeout=5):
-    i = 0
     try:
-        while i < timeout:
+        print("Waiting for OP-1 to connect in disk mode (Shift+COM -> 3)...")
+        while True:
+            if is_connected():
+                print("OP-1 connected and mounted!")
+                return True
             time.sleep(1)
-            mount_point = find_op1_mount()
-            if mount_point is not None:
-                return mount_point
-            i += 1
-        print("Timed out waiting for mount.")
-        return None
     except KeyboardInterrupt:
+        print("\nOperation cancelled by user")
         sys.exit(0)
 
+def is_valid_mount(mount_point):
+    
+    try:
+        mount_point = os.path.normpath(mount_point)
+        return os.path.exists(mount_point) and is_op1_drive(mount_point)
+    except Exception:
+        return False
+
 def get_mount_or_die_trying():
-    ensure_connection()
+    
+    if not is_connected():
+        wait_for_connection()
+    
     mount_point = find_op1_mount()
     if mount_point is None:
         print("Waiting for OP-1 disk to mount...")
         mount_point = wait_for_op1_mount()
         if mount_point is None:
-            sys.exit("Failed to find mount point of OP-1. Please ensure it's properly connected in DISK mode.")
-    return mount_point
+            sys.exit("Failed to find mount point of OP-1. Make sure it's in DISK mode and mounted.")
+    return os.path.normpath(mount_point)
+
+def find_op1_mount():
+    
+    if platform.system() == 'Windows':
+        for drive in get_removable_drives():
+            if is_op1_drive(drive):
+                print(f"Found OP-1 at {drive}")
+                return drive
+    else:
+        mounts = mount.get_potential_mounts()
+        if mounts:
+            for device, mount_point in mounts:
+                try:
+                    if is_op1_drive(mount_point):
+                        print(f"Found OP-1 at {mount_point}")
+                        return mount_point
+                except (PermissionError, FileNotFoundError):
+                    continue
+    return None
+
+def wait_for_op1_mount(timeout=15):
+    
+    try:
+        for i in range(timeout):
+            print(f"Checking for OP-1 mount ({i+1}/{timeout})...")
+            mount_point = find_op1_mount()
+            if mount_point is not None:
+                return mount_point
+            time.sleep(1)
+        print("Timed out waiting for mount.")
+        return None
+    except KeyboardInterrupt:
+        print("\nOperation cancelled by user")
+        sys.exit(0)
