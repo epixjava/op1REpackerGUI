@@ -113,7 +113,7 @@ this software. You will void your OP-1 warranty and in extremely unlikely cases,
 Use at your own risk! 
 
 
-## Features
+## Features!
 
 
 ### Unpack & Repack 
@@ -195,6 +195,10 @@ Currently available mods are:
    > this  image at https://op-forums.com/t/op-1-custom-graphics/17702 
    > since it is unable for download. (Phytaxil, if you still have the 
    > OG file I can use that instead) 
+
+ * gfx-cwo-cat/dog
+   
+   > Replaces cow in CWO with Cat or Dog. Created by baktakt
  
    
 
