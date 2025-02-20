@@ -2,6 +2,7 @@
 # Intro 
 
 Introducing op1REpackerGUI! This is a gui version of the op1repacker command line tool from op1hacks github with some added extras. 
+Supports macOS and Windows 10/11!
 
 
 ![OP1REGUI](https://github.com/epixjava/op1REpackerGUI/blob/main/assets/op1REGUI.png)
@@ -15,78 +16,76 @@ The original tool can be found here: https://github.com/op1hacks/op1repacker
 ### Glitter Theme Engine 
 
 Glitter has been added to op1REpackerGUI! The ultimate theme creator for your OP-1. 
+
 Features include: 
 Basic mode for easy theme creation by modifying only global colors 
 Advanced mode for SVG specific element IDs allowing for deeper customization
-Try your theme before applying using the Preview window
+Try your theme before applying using the Theme Preview window
 Easy editing of community themes
 cool colorful boxes
+
+
+Video Overview: 
 
 
 ![OP1GLITTER](https://github.com/epixjava/op1REpackerGUI/blob/main/assets/GlitterB.png)
 
 ![OP1GLITTERADV](https://github.com/epixjava/op1REpackerGUI/blob/main/assets/GlitterADV.png)
 
+![Cyber2077](ADD PICTURE)
 
+![SandDunes](ADD PICTURE)
 
 The orginal tool can be found here: https://github.com/Nanobot567/op1-glitter 
 
 
 I hope you enjoy using this tool as much as I have. Excited to see what you come up with! 
 
-### Opie Toolkit plus 
-
-The opie toolkit has been added to give you even more control over your OP-1. 
-features such as: Full device backup, flac A/B side song rips and more.
-SVG normalizer and SVG analyzer from the op1hacks repo have been added to aid with SVG creation. 
-A simple SVG creation guide. Tips and tricks to make your own graphics and patches.
-Mod list with toggles and descriptions for ultimate customization.
-Error handeling for troubleshooting messed up files.
-
 
 # Getting it running 
 
 
-Ensure you have Python3 installed on your system. 
+Ensure you have Python3 installed on your system you will also need a copy of this repo
 There are various guides to learn how to do this.
 A standard Python3 install will work just fine. Feel free to ask questions if needed! 
 
-1. In the main folder for op1REpackerGUI open a terminal window and run 
-```
- pip install -r requirements.txt
-```
-or if on Mac OS
-```
-pip3 install -r requirements.txt 
+Install Walthrough Video: 
 
-
-2. Test by running 
-```
- python3 main.py 
-```
-in the same terminal window
-
-op1REpackerGUI should start
-
-!For macOS Arm devices; I had to install libusb with homebrew. This is needed for opie to function correctly. see https://brew.sh for how to install homebrew 
-
-```
- brew install libusb
-```
-
-!!For Windows systems, The Glitter Theme Engine requires GTK to run correctly. This is due to an issue with cairosvg on windows 
-
-Install using the latest release found here. No extra setup necessary
-
-```
- https://github.com/tschoonj/GTK-for-Windows-Runtime-Environment-Installer
-```
 See the INSTALL.md file for more installation information if you run into trouble with these steps  
 
+macOS (ARM) M1-M4 based devices 
 
-#OP-1 REpackerGUI
+ 1. Install Python from python.org - (https://www.python.org/downloads/macos/)
 
-*Taken from the op1repacker readme* 
+ 2. Open a terminal window in the root of the op1REpackerGUI directory. 
+ 
+ 3. run ```./install.sh``` and follow the prompts to setup op1REpackerGUI. 
+
+*See the 'Install script info' section in the INSTALL.md file for  information on what this script is doing. 
+
+ 4. select yes to run or run the install script again after setup to launch the application 
+
+
+
+Windows10/11 
+
+ 1. ensure python3 is installed from python.org - (https://www.python.org/downloads/windows/) Make sure to select "add python.exe to PATH" and select "use admin privileges when installing" during setup. 
+
+ 2. install GTK3 runtime using the latest installer - (https://github.com/tschoonj/GTK-for-Windows-Runtime-Environment-Installer) use recomended defaults when installing
+
+ 3. open a CMD window in the op1REpackerGUI directory 
+
+ 4. run ```pip install -r winrequirements.txt```
+ then run ```winget install FFmpeg``` 
+ in the CMD window. (You do not have to install FFmpeg but opie uses it to make rips.)
+
+ 5. run the program with ```python main.py``` 
+
+
+# OP-1 REpackerGUI
+
+*Sourced from the original op1repacker readme* 
+
 op1repacker is a tool for unpacking and repacking OP-1 synthesizer firmware. It's based on
 the collective research  done at the [op-forums.com custom firmware thread](https://op-forums.com/t/custom-firmware-on-the-op-1/4283/680). 
 This allows you to access and modify the files within the firmware as well as

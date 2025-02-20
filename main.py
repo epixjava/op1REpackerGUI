@@ -92,18 +92,22 @@ class OP1REpacker:
          ctk.CTkLabel(center_frame, text="Mods", font=("Helvetica", 16, "bold")).pack(pady=(0, 0))
          ctk.CTkLabel(center_frame, text="Select a mod to enable it then press Modify!", font=("Helvetica", 16, "italic")).pack(pady=(0, 0))
 
-         # add your gfx pack to the list by putting its name under options
+         # add your gfx pack to the list by putting its name under options. Just follow the existing examples 
          self.option_vars = {}
          options = [
             ('iter', 'Enable "iter" synth'),
             ('presets-iter', 'Add community presets for "iter"'),
             ('filter', 'Enable "filter" effect'),
             ('subtle-fx', 'Make FX defaults less intensive'),
-            ('gfx-iter-lab', 'Enable custom lab graphic for iter'),
-            ('gfx-cwo-moose', 'Changes CWO graphic from cow to moose'),
             ('gfx-tape-invert', 'Inverts the Tape for better visability'),
-            ('gfx-cwo-wizard', 'Changes CWO graphic from cow to a wizard'),
-            ('gfx-iter-lostart','Changes "iter" graphic to Phytaxil custom artwork'),
+            ('gfx-iter-lab', 'Enable custom lab graphic for iter'),
+            ('gfx-iter-lostart','Changes "iter" graphic to Phytaxils custom artwork'),
+            ('gfx-cwo-moose', 'Changes CWO graphic from cow to moose'),
+            ('gfx-cwo-wizard', 'Changes CWO graphic from cow to a wizard. By Epixjava'),
+            ('gfx-cwo-dog', 'Changes CWO graphic from cow to dog. By baktakt'),
+            ('gfx-cwo-cat', 'Changes CWO graphic from cow to cat. By baktakt'),
+            
+            
          ]
          for option, description in options:
             var = tk.BooleanVar()
