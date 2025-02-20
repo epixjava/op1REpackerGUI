@@ -148,8 +148,8 @@ print_status "green" "Setup completed successfully!"
 read -p "Would you like to start op1REpackerGUI now? (Yes/No): " START_PROGRAM
 if [[ $START_PROGRAM =~ ^[Yy]([Ee][Ss])?$ ]]; then
     print_status "green" "Starting op1REpackerGUI..."
-    print_status "green" "You can start the program later by running: 'source .vrepacker/bin/activate' then 'python3 main.py'"
+    print_status "green" "You can start the program later by running: ./install.sh"
     python3 main.py
 else
-    print_status "yellow" "You can start the program later by running: 'source .vrepacker/bin/activate' then 'python3 main.py'"
+    print_status "yellow" "You can start the program later by running the install.sh script again or 'source .vrepacker/bin/activate' then 'python3 main.py'"
 fi
