@@ -18,23 +18,24 @@ The original tool can be found here: https://github.com/op1hacks/op1repacker
 Glitter has been added to op1REpackerGUI! The ultimate theme creator for your OP-1. 
 
 Features include: 
-Basic mode for easy theme creation by modifying only global colors 
-Advanced mode for SVG specific element IDs allowing for deeper customization
-Try your theme before applying using the Theme Preview window
-Easy editing of community themes
+Basic mode for easy theme creation by modifying only global colors, 
+Advanced mode for SVG specific element IDs allowing for deeper customization,
+Try your theme before applying using the Theme Preview window,
+Easy editing of community themes,
 cool colorful boxes
-
-
-Video Overview: 
+ 
 
 
 ![OP1GLITTER](https://github.com/epixjava/op1REpackerGUI/blob/main/assets/GlitterB.png)
 
 ![OP1GLITTERADV](https://github.com/epixjava/op1REpackerGUI/blob/main/assets/GlitterADV.png)
 
-![Cyber2077](ADD PICTURE)
+![Cyber2077](https://github.com/epixjava/op1REpackerGUI/blob/main/assets/Cyber2077.png)
 
-![SandDunes](ADD PICTURE)
+![Neotheme](https://github.com/epixjava/op1REpackerGUI/blob/main/assets/Neootheme.png)
+
+![fieldtheme](https://github.com/epixjava/op1REpackerGUI/blob/main/assets/fieldtheme.png)
+
 
 The orginal tool can be found here: https://github.com/Nanobot567/op1-glitter 
 
@@ -44,14 +45,16 @@ I hope you enjoy using this tool as much as I have. Excited to see what you come
 
 # Getting it running 
 
+Install video guide macOS: https://youtu.be/3t-Za3p9LSk
+
+Install video guide Windows: https://youtu.be/8aDZMsxtdWA
+
 
 Ensure you have Python3 installed on your system you will also need a copy of this repo
 There are various guides to learn how to do this.
 A standard Python3 install will work just fine. Feel free to ask questions if needed! 
-
-Install Walthrough Video: 
-
 See the INSTALL.md file for more installation information if you run into trouble with these steps  
+
 
 macOS (ARM) M1-M4 based devices 
 
