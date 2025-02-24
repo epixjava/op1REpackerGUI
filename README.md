@@ -32,7 +32,7 @@ cool colorful boxes
 
 ### Theme Screenshots
 
-Cyber2077:
+Cyber:
 ![Cyber2077](https://github.com/epixjava/op1REpackerGUI/blob/main/assets/Cyber2077.png)
 
 Neo:
