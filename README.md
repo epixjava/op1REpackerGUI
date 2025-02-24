@@ -32,13 +32,13 @@ cool colorful boxes
 
 ### Theme Screenshots
 
-Cyber:
+
 ![Cyber2077](https://github.com/epixjava/op1REpackerGUI/blob/main/assets/Cyber2077.png)
 
-Neo:
+:
 ![neotheme](https://github.com/epixjava/op1REpackerGUI/blob/main/assets/neotheme.png)
 
-field:
+:
 ![fieldtheme](https://github.com/epixjava/op1REpackerGUI/blob/main/assets/fieldtheme.png)
 
 
