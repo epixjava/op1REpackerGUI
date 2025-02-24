@@ -32,7 +32,7 @@ cool colorful boxes
 
 ![Cyber2077](https://github.com/epixjava/op1REpackerGUI/blob/main/assets/Cyber2077.png)
 
-![Neotheme](https://github.com/epixjava/op1REpackerGUI/blob/main/assets/neotheme.png)
+![neotheme](https://github.com/epixjava/op1REpackerGUI/blob/main/assets/neotheme.png)
 
 ![fieldtheme](https://github.com/epixjava/op1REpackerGUI/blob/main/assets/fieldtheme.png)
 
