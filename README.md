@@ -2,7 +2,7 @@
 # Intro 
 
 Introducing op1REpackerGUI! This is a gui version of the op1repacker command line tool from op1hacks github with some added extras. 
-Supports macOS and Windows 10/11!
+Supports macOS (ARM - M series) and Windows 10/11!
 
 
 ![OP1REGUI](https://github.com/epixjava/op1REpackerGUI/blob/main/assets/op1REGUI.png)
@@ -49,6 +49,9 @@ I hope you enjoy using this tool as much as I have. Excited to see what you come
 
 
 # Getting it running 
+
+NOTE: Currently this program has support for M1-M4 macOS arm devices. The program will run on intel x86 macs but will need manual setup as the install script does not support x86 at this time. (see issue #1)
+
 
 Install video guide macOS: https://youtu.be/3t-Za3p9LSk
 
