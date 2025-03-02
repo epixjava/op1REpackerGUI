@@ -23,7 +23,12 @@ Advanced mode for SVG specific element IDs allowing for deeper customization,
 Try your theme before applying using the Theme Preview window,
 Easy editing of community themes,
 cool colorful boxes
- 
+
+
+Select 'Glitter' under 'Advanced tools' to start The Glitter Theme Engine. 
+
+See the Glitter Guide to learn how to use the tool by selecting 'How to use'
+
 
 
 ![OP1GLITTER](https://github.com/epixjava/op1REpackerGUI/blob/main/assets/GlitterB.png)
