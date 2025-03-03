@@ -223,9 +223,12 @@ Currently available mods are:
    
 
 To enable a mod, first unpack the firmware, select the mods you want 
-then click "Modify" op1REpacker will let you know 
-when the mods have been applied. Rememeber to repack and upload the 
-firmware when complete! 
+
+then click "Modify" op1REpackerGUI will let you know when the mods have been applied. 
+
+If you want to apply a theme do this after the modification step. 
+
+Rememeber to repack and upload the REpacked firmware to the device  when complete! 
 
 More modifications will be added later....
 
@@ -241,8 +244,11 @@ Opie is the desktop frand for the OP-1.
 ** Now works on macOS and Windows 10/11!
 
 Rip Sides A and B of your Tape. Rips to FLAC, MP3 or M4a.
+
 See storage information of your OP1. 
+
 Backup and Restore your OP1.
+
 Pretty ASCII art.
 
 
@@ -252,17 +258,25 @@ Run the opie toolkit from the op1REpackerGUI tool.
 Opie will open in the existing terminal window
 
 In the terminal window enter one of the following commands; 
+
 "Backup"
+
 "Restore" 
+
 "Rip"
+
 "Storage"
+
 "Eject"
+
 "Verify"
+
 "Exit"
 
 An "opie" folder is created in your users folder. Your backups and rips will be saved here. 
 
 Mac os: Macintosh HD\Users\username\opie
+
 Windows: C:\Users\username\opie
 
 
