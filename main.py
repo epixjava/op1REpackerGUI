@@ -254,7 +254,7 @@ class OP1REpacker:
 
         messagebox.showinfo("Unpacking", f'Unpacking {target_path}...')
         if self.repacker.unpack(target_path):
-            messagebox.showinfo("Success", 'Unpacking completed successfully! \n Select the unpacked file in the file browser! \n Select mods then apply by clicking Modify!')
+            messagebox.showinfo("Success", 'Unpacking completed successfully! \n Select the unpacked folder in the file browser! \n Select mods then apply by clicking Modify!')
         else:
             messagebox.showerror("Error", 'An error occurred during unpacking!')
 
