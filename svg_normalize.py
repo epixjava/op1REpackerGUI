@@ -52,7 +52,7 @@ ATTR_ALL = [
 # Numeric attributes 
 ATTR_NUMERIC = [
     "x", "y", "width", "height", "stroke-width", "cx", "cy", "r", "x1", "y1",
-    "x2", "y2", "rx", "ry", "opacity" , "points"
+    "x2", "y2", "rx", "ry", "opacity" # , "points"
 ]
 
 
