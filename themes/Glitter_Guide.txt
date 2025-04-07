@@ -40,7 +40,6 @@ Thank you to Nanobot567 for his op1-glitter patching function and the inspiratio
 6. Troubleshooting
 
 
-
 ## Before you begin
 
 Before using the Glitter Theme Engine, make sure you have:
@@ -173,7 +172,8 @@ Before using the Glitter Theme Engine, make sure you have:
 
 ## Tips & Color References
 
-1. **Tips**
+
+2. **Tips**
    - Use 6-digit hex codes with hash (#FF0000)
    - Consider contrast and readability
    - We want TE to like us so try to keep the spirit of the OP-1. No color atrocities. ;D
@@ -181,8 +181,9 @@ Before using the Glitter Theme Engine, make sure you have:
    - Switch to Advanced for fine-tuning
    - Save work regularly
    - Test theme with preview before REpacking OP-1 firmware
+   - You can use Inkscape to help identify UI element SVG IDs
 
-2. **Common Color References**
+3. **Common Color References**
    - #00ed95: green encoder 
    - #ff3a5d: red encoder 
    - #698eff: blue encoder
