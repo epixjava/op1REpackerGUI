@@ -1,7 +1,7 @@
 {
   "theme_meta": {
     "name": "neo",
-    "description": "This is a very bright theme centered around the colors purple, cyan, and orange.",
+    "description": "A very bright theme centered around the colors purple, cyan, and orange.",
     "author": "nanobot567"
   },
   "global": {
@@ -13,14 +13,15 @@
     "#4d9eff": "#7149d1",
     "#00475b": "#21005b",
     "#ff395a": "#d65b2a",
-    "#3854a5": "#1895a5",
+    "#3854a5": "#5e27cc",
     "#38354d": "#1895a5",
     "#9256d7": "#16617f",
     "#00ab6b": "#179e95",
     "#34477d": "#23044f",
     "#ffb3b3": "#db6334",
     "#ff423f": "#dd6b42",
-    "#80ffaf": "#3ceadf"
+    "#80ffaf": "#3ceadf",
+    "#638bff": "#7e4fea"
   },
   "clock": {
     "#dfd9ff": "#7e4fea",
