@@ -99,7 +99,7 @@ class OP1REpacker:
             ('presets-iter', 'Add community presets for "iter"'),
             ('filter', 'Enable "filter" effect'),
             ('subtle-fx', 'Make FX defaults less intensive'),
-            ('gfx-tape-invert', 'Inverts the Tape for better visability'),
+            ('gfx-tape-invert', 'Inverts the Tape for better visibility'),
             ('gfx-iter-lab', 'Enable custom lab graphic for iter'),
             ('gfx-iter-lostart','Changes "iter" graphic to Phytaxils custom artwork'),
             ('gfx-cwo-moose', 'Changes CWO graphic from cow to moose'),
