@@ -59,7 +59,7 @@ I hope you enjoy using this tool as much as I have. Excited to see what you come
 
 # Getting it running 
 
-NOTE: Currently this program has support for M1-M4 macOS arm devices. The program will run on intel x86 macs but will need manual setup as the install script does not support x86 at this time. (see issue #1)
+NOTE: Currently this program has support for M1-M4 macOS arm devices and x86 based Windows 10/11. The program will run on intel x86 macs but will need manual setup as the install script does not support x86 at this time. Your mileage may vary. 
 
 
 Install video guide macOS: https://youtu.be/3t-Za3p9LSk
