@@ -67,9 +67,9 @@ Install video guide macOS: https://youtu.be/3t-Za3p9LSk
 Install video guide Windows: https://youtu.be/8aDZMsxtdWA
 
 
-Ensure you have Python3 installed on your system you will also need a copy of this repo
+Ensure you have Python 3.11 installed on your system you will also need a copy of this repo
 There are various guides to learn how to do this.
-A standard Python3 install will work just fine. Feel free to ask questions if needed! 
+A standard Python 3.11 install will work just fine. Feel free to ask questions if needed! 
 See the INSTALL.md file for more installation information if you run into trouble with these steps  
 
 
@@ -89,7 +89,7 @@ macOS (ARM) M1-M4 based devices
 
 Windows10/11 
 
- 1. ensure python3 is installed from python.org - (https://www.python.org/downloads/windows/) Make sure to select "add python.exe to PATH" and select "use admin privileges when installing" during setup. 
+ 1. ensure python 3.11 is installed from python.org - (https://www.python.org/downloads/windows/) Make sure to select "add python.exe to PATH" and select "use admin privileges when installing" during setup. 
 
  2. install GTK3 runtime using the latest installer - (https://github.com/tschoonj/GTK-for-Windows-Runtime-Environment-Installer) use recomended defaults when installing
 
@@ -114,7 +114,7 @@ are also included in the tool (see [Modify](#modify)). Lastly it is also
 possible to analyze unpacked firmware to get information such as build version,
 build time and date, bootloader version etc.
 
- - Requires Python3
+ - Requires Python 3.11
  - Tested on Linux, OS X and Windows 10/11
 
 ![Filter Effect](https://raw.githubusercontent.com/op1hacks/op1repacker/master/images/filter.png)
